@@ -34,7 +34,12 @@
     "pree2e:protractor": "wait-on http-get://localhost:4200/ && protractor ./protractor.conf.js",
     "e2e": "npm-run-all -p -r pree2e:build pree2e:protractor"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@angular/animations": "^5.2.10",
+    "@angular/cdk": "^5.2.5",
+    "@angular/material": "^5.2.5",
+    "material-icons": "^0.2.1"
+  },
   "devDependencies": {
     "@angular/cli": "1.7.4",
     "@angular/common": "5.2.9",

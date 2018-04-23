@@ -1,7 +1,10 @@
 {
+  "toolbar": {
+    "title": "HP events"
+  },
   "PAGES": {
-      "HOME": {
-          "TITLE": "App works !"
-      }
+    "HOME": {
+      "TITLE": "App works !"
+    }
   }
 }
