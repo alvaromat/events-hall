@@ -1,11 +1,11 @@
 {
-  "name": "angular-electron",
-  "version": "3.3.0",
-  "description": "Angular 5 with Electron (Typescript + SASS + Hot Reload)",
-  "homepage": "https://github.com/maximegris/angular-electron",
+  "name": "events-hall",
+  "version": "0.0.0",
+  "description": "App to display information of different kinds in events or meetings",
+  "homepage": "https://github.com/alvaromat/events-hall",
   "author": {
-    "name": "Maxime GRIS",
-    "email": "maxime.gris@gmail.com"
+    "name": "Álvaro Mateos Labrador",
+    "email": "alvaromat@usal.es"
   },
   "keywords": [
     "angular",
@@ -22,7 +22,7 @@
     "start": "node hooks/environments/set_profile.js && npm-run-all -p ng:serve electron:serve",
     "build": "node hooks/environments/set_profile.js && ng build && npm run electron:tsc",
     "build:prod": "node hooks/environments/set_profile.js && ng build --prod && npm run electron:tsc",
-    "ng:serve": "ng serve -o",
+    "ng:serve": "ng serve",
     "electron:tsc": "tsc main.ts",
     "electron:serve": "wait-on http-get://localhost:4200/ && npm run electron:tsc && electron . --serve",
     "electron:local": "npm run build:prod && electron .",
