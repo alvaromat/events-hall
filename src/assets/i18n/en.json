@@ -1,6 +1,7 @@
 {
   "toolbar": {
-    "title": "HP events"
+    "title": "HP Events",
+    "close": "Close app"
   },
   "PAGES": {
     "HOME": {
