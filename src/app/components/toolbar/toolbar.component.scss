@@ -1,5 +1,11 @@
 mat-toolbar{
-  span.filling{
+  -webkit-app-region: drag;
+
+  button {
+    -webkit-app-region: no-drag;
+  }
+
+  span.filling {
     flex: 1 1 auto;
   }
 
