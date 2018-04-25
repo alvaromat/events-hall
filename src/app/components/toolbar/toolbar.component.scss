@@ -1,5 +1,8 @@
+@import '~_variables.scss';
+
 mat-toolbar{
   -webkit-app-region: drag;
+  -webkit-user-select: none;
 
   button {
     -webkit-app-region: no-drag;
@@ -12,4 +15,16 @@ mat-toolbar{
   .logo {
     padding-right: 1em;
   }
+
+  /* Needed to allow resizing the window  */
+  padding: 0px;
+  padding-bottom: 8px;
+  height: 48px;
+}
+
+/* Needed to allow resizing the window  */
+.toolbar-container {
+  background-color: $primary;
+  padding: 0px 16px;
+  padding-top: 8px;
 }

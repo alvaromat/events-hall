@@ -1,13 +1,15 @@
-<mat-toolbar color="primary">
-  <mat-icon class="logo" aria-hidden="true">airplay</mat-icon>
-  <span>{{ "toolbar.title" | translate }}</span>
+<div class="toolbar-container">
+    <mat-toolbar color="primary">
+        <mat-icon class="logo" aria-hidden="true">airplay</mat-icon>
+        <span>{{ "toolbar.title" | translate }}</span>
 
-  <!-- Fills the empty space to display the button-row at right -->
-  <span class="filling"></span>
+        <!-- Fills the empty space to display the button-row at right -->
+        <span class="filling"></span>
 
-  <div class="button-row">
-    <button mat-icon-button matTooltip="{{'toolbar.close' | translate}}" (click)="quit()">
-      <mat-icon>close</mat-icon>
-    </button>
-  </div>
-</mat-toolbar>
+        <div class="button-row">
+          <button mat-icon-button matTooltip="{{'toolbar.close' | translate}}" (click)="quit()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+      </mat-toolbar>
+</div>
