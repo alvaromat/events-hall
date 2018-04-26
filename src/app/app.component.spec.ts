@@ -3,18 +3,22 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { ElectronService } from './providers/electron.service';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { MaterialComponentsModule } from './material-components.module';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        ToolbarComponent
       ],
       providers: [
         ElectronService
       ],
       imports: [
         RouterTestingModule,
+        MaterialComponentsModule,
         TranslateModule.forRoot()
       ]
     }).compileComponents();

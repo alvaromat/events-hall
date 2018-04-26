@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ToolbarComponent } from './toolbar.component';
+import { MaterialComponentsModule } from '../../material-components.module';
+import { TranslateModule } from '@ngx-translate/core';
+import { ElectronService } from '../../providers/electron.service';
 
 describe('ToolbarComponent', () => {
   let component: ToolbarComponent;
@@ -8,7 +11,12 @@ describe('ToolbarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ToolbarComponent ]
+      declarations: [ ToolbarComponent ],
+      imports: [
+        MaterialComponentsModule,
+        TranslateModule.forRoot()
+     ],
+     providers: [ ElectronService ]
     })
     .compileComponents();
   }));
@@ -22,4 +30,9 @@ describe('ToolbarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render title', async(() => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('mat-toolbar>span').textContent).toContain('toolbar.title');
+  }));
 });
