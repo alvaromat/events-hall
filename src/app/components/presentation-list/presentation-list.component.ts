@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PresentationService } from '../../providers/presentation.service';
+import { Presentation } from '../../models/presentation';
 
 @Component({
   selector: 'app-presentation-list',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PresentationListComponent implements OnInit {
 
-  constructor() { }
+  presentations: Presentation[];
+
+  constructor(private presentationService: PresentationService) { }
 
   ngOnInit() {
+    this.presentations = this.presentationService.getPresentations();
   }
 
 }

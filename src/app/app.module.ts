@@ -22,7 +22,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { MaterialComponentsModule } from './/material-components.module';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { PresentationsService } from './providers/presentations.service';
+import { PresentationService } from './providers/presentation.service';
 import { PresentationListComponent } from './components/presentation-list/presentation-list.component';
 
 // AoT requires an exported function for factories
@@ -53,7 +53,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserAnimationsModule,
     MaterialComponentsModule
   ],
-  providers: [ElectronService, PresentationsService],
+  providers: [ElectronService, PresentationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

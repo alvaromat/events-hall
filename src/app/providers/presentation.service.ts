@@ -3,7 +3,7 @@ import { Presentation } from '../models/presentation';
 import { PRESENTATIONS } from '../shared/mock-presentations';
 
 @Injectable()
-export class PresentationsService {
+export class PresentationService {
 
   constructor() { }
 

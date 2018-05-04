@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
-import { MatToolbarModule, MatIconModule, MatButtonModule, MatTooltipModule } from '@angular/material';
+import { MatToolbarModule, MatIconModule, MatButtonModule, MatTooltipModule, MatListModule, MatListItem } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-  imports: [ MatToolbarModule, MatIconModule, MatButtonModule, MatTooltipModule ],
-  exports: [ MatToolbarModule, MatIconModule, MatButtonModule, MatTooltipModule ],
+  imports: [ BrowserAnimationsModule, MatToolbarModule, MatIconModule, MatButtonModule, MatTooltipModule, MatListModule ],
+  exports: [ BrowserAnimationsModule, MatToolbarModule, MatIconModule, MatButtonModule, MatTooltipModule, MatListModule ],
   declarations: []
 })
 export class MaterialComponentsModule { }
