@@ -32,7 +32,8 @@
     "test": "karma start ./karma.conf.js",
     "pree2e:build": "webdriver-manager update --gecko false && npm run ng serve",
     "pree2e:protractor": "wait-on http-get://localhost:4200/ && protractor ./protractor.conf.js",
-    "e2e": "npm-run-all -p -r pree2e:build pree2e:protractor"
+    "e2e": "npm-run-all -p -r pree2e:build pree2e:protractor",
+    "playground": "angular-playground"
   },
   "dependencies": {
     "@angular/animations": "^5.2.10",
@@ -58,6 +59,7 @@
     "@types/jasmine": "2.8.6",
     "@types/jasminewd2": "2.0.3",
     "@types/node": "7.0.7",
+    "angular-playground": "^4.0.1",
     "codelyzer": "4.2.1",
     "core-js": "2.5.5",
     "cross-env": "5.1.4",
