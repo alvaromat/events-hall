@@ -45,6 +45,10 @@
       "main": "main.playground.ts",
       "polyfills": "polyfills.ts",
       "tsconfig": "tsconfig.app.json",
+      "styles": [
+        "styles.scss",
+        "_variables.scss"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
