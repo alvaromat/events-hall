@@ -19,7 +19,6 @@ import { ElectronService } from './providers/electron.service';
 import { WebviewDirective } from './directives/webview.directive';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
 import { MaterialComponentsModule } from './/material-components.module';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { PresentationService } from './providers/presentation.service';
@@ -33,7 +32,6 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     WebviewDirective,
     ToolbarComponent,
     PresentationListComponent
