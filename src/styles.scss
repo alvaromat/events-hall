@@ -1,7 +1,6 @@
 @import '~@angular/material/theming';
 @include mat-core();
 @import '_variables.scss';
-$app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
 @include angular-material-theme($app-theme);
 
 $material-icons-font-path: '~material-icons/iconfont/';
