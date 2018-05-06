@@ -15,14 +15,13 @@ try {
 function createWindow() {
 
   const electronScreen = screen;
-  const size = electronScreen.getPrimaryDisplay().workAreaSize;
 
   // Create the browser window.
   win = new BrowserWindow({
-    x: 0,
-    y: 0,
-    width: size.width,
-    height: size.height,
+    minWidth: 600,
+    minHeight: 400,
+    width: 600,
+    height: 400,
     frame: false
   });
 
