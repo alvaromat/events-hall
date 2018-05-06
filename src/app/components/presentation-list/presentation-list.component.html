@@ -3,8 +3,11 @@
     <a matLine>{{ presentation.name }}</a>
     <p matLine>
       <span class="date">{{presentation.created | date: 'shortDate'}}</span>
-      <span class="layout" matTooltip="Layout">{{presentation.layout.name}}</span>
+      <span class="layout">{{presentation.layout.name}}</span>
     </p>
+    <button class="delete" mat-icon-button>
+      <mat-icon matListIcon>delete</mat-icon>
+    </button>
   </mat-list-item>
 </mat-nav-list>
 <button class="floating-button" mat-fab color="primary">

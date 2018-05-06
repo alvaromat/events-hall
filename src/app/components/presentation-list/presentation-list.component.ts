@@ -17,4 +17,16 @@ export class PresentationListComponent implements OnInit {
     this.presentations = this.presentationService.getPresentations();
   }
 
+  create() {
+
+  }
+
+  delete(presentation: Presentation) {
+
+  }
+
+  open(presentation: Presentation) {
+
+  }
+
 }

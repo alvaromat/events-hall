@@ -1,9 +1,12 @@
 @import '~@angular/material/theming';
+@import '~_variables.scss';
 mat-list-item {
   p {
     span {
+      color: map-get($mat-grey, 600);
       &.layout {
         float: right;
+        padding-right: 1rem;
       }
       &.date {
         float: left;
@@ -12,13 +15,22 @@ mat-list-item {
   }
 }
 
-button.floating-button {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  @include mat-elevation-transition;
-  @include mat-elevation(6);
-  &:active {
-    @include mat-elevation(12);
+button {
+  &.floating-button {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    @include mat-elevation-transition;
+    @include mat-elevation(6);
+    &:active {
+      @include mat-elevation(12);
+    }
+  }
+
+  &.delete {
+    color: mat-color($app-warn, A100);
+    &:hover {
+      color: $warn;
+    }
   }
 }
