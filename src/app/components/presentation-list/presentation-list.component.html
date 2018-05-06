@@ -1,15 +1,15 @@
 <mat-nav-list>
   <mat-list-item *ngFor="let presentation of presentations">
-    <a matLine>{{ presentation.name }}</a>
+    <a (click)="open(presentation)" matLine>{{ presentation.name }}</a>
     <p matLine>
       <span class="date">{{presentation.created | date: 'shortDate'}}</span>
       <span class="layout">{{presentation.layout.name}}</span>
     </p>
-    <button class="delete" mat-icon-button>
+    <button (click)="delete(presentation)" class="delete" mat-icon-button>
       <mat-icon matListIcon>delete</mat-icon>
     </button>
   </mat-list-item>
 </mat-nav-list>
-<button class="floating-button" mat-fab color="primary">
+<button (click)="create()" class="floating-button" mat-fab color="primary">
   <mat-icon aria-label="Create new presentation">add</mat-icon>
 </button>

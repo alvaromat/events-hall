@@ -7,6 +7,10 @@ export class PresentationService {
 
   constructor() { }
 
+  delete(presentation: Presentation): boolean {
+    return true;
+  }
+
   getPresentations(): Presentation[] {
     return PRESENTATIONS;
   }
