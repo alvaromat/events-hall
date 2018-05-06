@@ -23,6 +23,7 @@ import { MaterialComponentsModule } from './/material-components.module';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { PresentationService } from './providers/presentation.service';
 import { PresentationListComponent } from './components/presentation-list/presentation-list.component';
+import { PresentationEditorComponent } from './components/presentation-editor/presentation-editor.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -34,7 +35,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     WebviewDirective,
     ToolbarComponent,
-    PresentationListComponent
+    PresentationListComponent,
+    PresentationEditorComponent
   ],
   imports: [
     BrowserModule,
