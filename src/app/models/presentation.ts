@@ -1,10 +1,7 @@
-import { Layout } from './layout';
-
 export class Presentation {
   constructor(
-    created: Date,
-    layout: Layout,
-    modified: Date,
+    date: Date,
     name: string,
+    modules?: any[]
   ) {}
 }

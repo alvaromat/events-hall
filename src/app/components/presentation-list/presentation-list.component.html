@@ -2,8 +2,8 @@
   <mat-list-item *ngFor="let presentation of presentations">
     <a (click)="open(presentation)" matLine>{{ presentation.name }}</a>
     <p matLine>
-      <span class="date">{{presentation.created | date: 'shortDate'}}</span>
-      <span class="layout">{{presentation.layout.name}}</span>
+      <span class="date">{{presentation.date | date: 'shortDate'}}</span>
+      <span class="modules">{{presentation.modules.length | i18nPlural: {'=0': 'No modules', '=1': 'One module', 'other': '# modules'} }}</span>
     </p>
     <button (click)="delete(presentation)" class="delete" mat-icon-button>
       <mat-icon matListIcon>delete</mat-icon>

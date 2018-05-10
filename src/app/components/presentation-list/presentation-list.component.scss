@@ -4,7 +4,7 @@ mat-list-item {
   p {
     span {
       color: map-get($mat-grey, 600);
-      &.layout {
+      &.modules {
         float: right;
         padding-right: 1rem;
       }
