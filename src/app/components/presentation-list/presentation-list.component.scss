@@ -1,5 +1,6 @@
 @import '~@angular/material/theming';
 @import '~_variables.scss';
+
 mat-list-item {
   p {
     span {
@@ -31,6 +32,13 @@ button {
     color: mat-color($app-warn, A100);
     &:hover {
       color: $warn;
+    }
+  }
+
+  &.edit {
+    color: mat-color($mat-grey, 600);
+    &:hover {
+      color: black;
     }
   }
 }

@@ -5,11 +5,16 @@
       <span class="date">{{presentation.date | date: 'shortDate'}}</span>
       <span class="modules">{{presentation.modules.length | i18nPlural: {'=0': 'No modules', '=1': 'One module', 'other': '# modules'} }}</span>
     </p>
+    <button (click)="open(presentation, true)" class="edit" mat-icon-button>
+      <mat-icon matListIcon>settings</mat-icon>
+    </button>
     <button (click)="delete(presentation)" class="delete" mat-icon-button>
       <mat-icon matListIcon>delete</mat-icon>
     </button>
   </mat-list-item>
 </mat-nav-list>
+
 <button (click)="create()" class="floating-button" mat-fab color="primary">
   <mat-icon aria-label="Create new presentation">add</mat-icon>
 </button>
+

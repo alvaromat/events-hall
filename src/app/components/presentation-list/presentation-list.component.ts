@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { PresentationService } from '../../providers/presentation.service';
 import { Presentation } from '../../models/presentation';
 import { ElectronService } from '../../providers/electron.service';
+import { MatDialog } from '@angular/material';
+import { NewPresentationDialogComponent } from './new-presentation-dialog/new-presentation-dialog.component';
 
 @Component({
   selector: 'app-presentation-list',
@@ -9,29 +11,38 @@ import { ElectronService } from '../../providers/electron.service';
   styleUrls: ['./presentation-list.component.scss']
 })
 export class PresentationListComponent implements OnInit {
-
   presentations: Presentation[];
 
-  constructor(private presentationService: PresentationService, private electronService: ElectronService) { }
+  constructor(
+    private presentationService: PresentationService,
+    private electronService: ElectronService,
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit() {
-    this.presentations = this.presentationService.getPresentations();
-    this.electronService.remote.getCurrentWindow().setResizable(false);
+    this.presentationService
+      .getPresentations()
+      .subscribe(presentations => (this.presentations = presentations));
+    // this.electronService.remote.getCurrentWindow().setResizable(false);
     // TODO: check if it executes when closing a presentation
   }
 
   create() {
+    const dialogRef = this.dialog.open(NewPresentationDialogComponent);
 
+    dialogRef.afterClosed().subscribe(resultPresentation => {
+      if (resultPresentation) {
+        this.presentationService
+          .add(resultPresentation)
+          .subscribe(presentation => this.presentations.unshift(presentation));
+      }
+    });
   }
 
   delete(presentation: Presentation) {
-    if (this.presentationService.delete(presentation)) {
-      this.presentations = this.presentations.filter(p => p !== presentation);
-    }
+    this.presentations = this.presentations.filter(p => p !== presentation);
+    this.presentationService.delete(presentation).subscribe();
   }
 
-  open(presentation: Presentation) {
-
-  }
-
+  open(presentation: Presentation, editMode = false) {}
 }
