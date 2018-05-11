@@ -11,3 +11,5 @@ $accent: mat-color($app-accent);
 $warn: mat-color($app-warn);
 
 $app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
+
+$toolbar-height: 56px;
