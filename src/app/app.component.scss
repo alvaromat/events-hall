@@ -1,0 +1,28 @@
+@import '~_variables.scss';
+
+mat-toolbar {
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  -webkit-user-select: none;
+
+  button {
+    -webkit-app-region: no-drag;
+  }
+
+  span {
+    -webkit-app-region: drag;
+    &.filling {
+      flex: 1 1 auto;
+      height: 70%;
+    }
+  }
+
+  .logo {
+    -webkit-app-region: drag;
+    padding-right: 1em;
+  }
+}

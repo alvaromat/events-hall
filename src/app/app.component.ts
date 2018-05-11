@@ -23,4 +23,8 @@ export class AppComponent {
       console.log('Mode web');
     }
   }
+
+  quit(): void {
+    this.electronService.remote.app.quit();
+  }
 }

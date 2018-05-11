@@ -8,9 +8,15 @@ $material-icons-font-path: '~material-icons/iconfont/';
 
 html, body {
   margin: 0;
-  padding: 0;
-
-  height: 100%;
-
   font-family: Roboto, Arial, sans-serif;
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 56px;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
