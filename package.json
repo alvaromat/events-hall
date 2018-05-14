@@ -39,7 +39,7 @@
     "@angular/animations": "^5.2.10",
     "@angular/cdk": "^5.2.5",
     "@angular/material": "^5.2.5",
-    "material-icons": "^0.2.1"
+    "material-design-icons": "^3.0.1"
   },
   "devDependencies": {
     "@angular/cli": "1.7.4",

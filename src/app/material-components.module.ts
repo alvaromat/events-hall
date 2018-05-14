@@ -9,7 +9,8 @@ import {
   MatInputModule,
   MatDatepickerModule,
   MatDialogModule,
-  DateAdapter
+  DateAdapter,
+  MatSidenavModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
@@ -28,7 +29,8 @@ import {
     MatDialogModule,
     MatInputModule,
     MatDatepickerModule,
-    MatMomentDateModule
+    MatMomentDateModule,
+    MatSidenavModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -40,7 +42,8 @@ import {
     MatDialogModule,
     MatInputModule,
     MatDatepickerModule,
-    MatMomentDateModule
+    MatMomentDateModule,
+    MatSidenavModule
   ],
   declarations: []
 })

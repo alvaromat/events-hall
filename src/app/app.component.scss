@@ -22,11 +22,9 @@ mat-toolbar {
       flex: 1 1 auto;
       height: 70%;
     }
-  }
-
-  .logo {
-    -webkit-app-region: drag;
-    padding-right: 1em;
+    &.title {
+      padding-left: 1rem;
+    }
   }
 }
 

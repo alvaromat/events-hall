@@ -23,8 +23,6 @@ export class PresentationListComponent implements OnInit {
     this.presentationService
       .getPresentations()
       .subscribe(presentations => (this.presentations = presentations));
-    // this.electronService.remote.getCurrentWindow().setResizable(false);
-    // TODO: check if it executes when closing a presentation
   }
 
   create() {

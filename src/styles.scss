@@ -3,9 +3,6 @@
 @import '_variables.scss';
 @include angular-material-theme($app-theme);
 
-$material-icons-font-path: '~material-icons/iconfont/';
-@import '~material-icons/iconfont/material-icons.scss';
-
 html, body {
   margin: 0;
   font-family: Roboto, Arial, sans-serif;
