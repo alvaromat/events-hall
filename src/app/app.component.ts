@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ElectronService } from './providers/electron.service';
 import { TranslateService } from '@ngx-translate/core';
 import { environment } from '../environments/environment';
 import { BrowserWindow } from 'electron';
+import { MatSidenav } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,26 +12,24 @@ import { BrowserWindow } from 'electron';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
   win: BrowserWindow;
+  @ViewChild('sidenav') sidenav: MatSidenav;
 
   get maximized(): boolean {
     return this.win.isMaximized();
   }
 
-  constructor(public electronService: ElectronService,
-    private translate: TranslateService) {
-
+  constructor(
+    private electronService: ElectronService,
+    private translate: TranslateService,
+    private router: Router
+  ) {
     translate.setDefaultLang('en');
+    this.router.events.subscribe(() => this.sidenav.close());
     console.log('environment', environment);
 
     if (electronService.isElectron()) {
-      console.log('Mode electron');
-      console.log('Electron ipcRenderer', electronService.ipcRenderer);
-      console.log('NodeJS childProcess', electronService.childProcess);
       this.win = electronService.remote.getCurrentWindow();
-    } else {
-      console.log('Mode web');
     }
   }
 

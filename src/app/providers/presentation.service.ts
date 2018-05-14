@@ -6,10 +6,9 @@ import { of } from 'rxjs/observable/of';
 
 @Injectable()
 export class PresentationService {
-
   private presentations = PRESENTATIONS;
 
-  constructor() { }
+  constructor() {}
 
   delete(presentation: Presentation): Observable<Presentation> {
     this.presentations = this.presentations.filter(p => p !== presentation);
@@ -17,7 +16,9 @@ export class PresentationService {
   }
 
   getPresentations(): Observable<Presentation[]> {
-    const presentations = this.presentations.map((presentation) => Object.assign({}, presentation));
+    const presentations = this.presentations.map(presentation =>
+      Object.assign({}, presentation)
+    );
     return of(presentations);
   }
 
@@ -26,4 +27,9 @@ export class PresentationService {
     return of(presentation);
   }
 
+  get(id: number) {
+     return of(this.presentations.find(
+      (presentation: Presentation) => presentation.id === id
+    ));
+  }
 }

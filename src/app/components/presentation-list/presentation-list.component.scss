@@ -34,11 +34,4 @@ button {
       color: $warn;
     }
   }
-
-  &.edit {
-    color: mat-color($mat-grey, 600);
-    &:hover {
-      color: black;
-    }
-  }
 }

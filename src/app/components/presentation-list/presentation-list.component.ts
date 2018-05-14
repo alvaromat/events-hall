@@ -13,6 +13,7 @@ import { NewPresentationDialogComponent } from './new-presentation-dialog/new-pr
 export class PresentationListComponent implements OnInit {
   presentations: Presentation[];
 
+
   constructor(
     private presentationService: PresentationService,
     private electronService: ElectronService,
@@ -41,6 +42,4 @@ export class PresentationListComponent implements OnInit {
     this.presentations = this.presentations.filter(p => p !== presentation);
     this.presentationService.delete(presentation).subscribe();
   }
-
-  open(presentation: Presentation, editMode = false) {}
 }

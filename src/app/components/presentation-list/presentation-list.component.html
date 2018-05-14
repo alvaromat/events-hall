@@ -1,13 +1,10 @@
 <mat-nav-list>
-  <mat-list-item *ngFor="let presentation of presentations">
-    <a (click)="open(presentation)" matLine>{{ presentation.name }}</a>
+  <mat-list-item *ngFor="let presentation of presentations" routerLink="/edit/{{presentation.id}}">
+    <a matLine>{{ presentation.name }}</a>
     <p matLine>
       <span class="date">{{presentation.date | date: 'shortDate'}}</span>
       <span class="modules">{{presentation.modules.length | i18nPlural: {'=0': 'No modules', '=1': 'One module', 'other': '# modules'} }}</span>
     </p>
-    <button (click)="open(presentation, true)" class="edit" mat-icon-button>
-      <mat-icon matListIcon>settings</mat-icon>
-    </button>
     <button (click)="delete(presentation)" class="delete" mat-icon-button>
       <mat-icon matListIcon>delete</mat-icon>
     </button>

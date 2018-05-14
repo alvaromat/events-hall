@@ -4,10 +4,7 @@ import { PresentationListComponent } from './components/presentation-list/presen
 import { PresentationEditorComponent } from './components/presentation-editor/presentation-editor.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: PresentationEditorComponent
-  }
+  { path: 'edit/:id', component: PresentationEditorComponent }
 ];
 
 @NgModule({
