@@ -11,12 +11,12 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
-  win: BrowserWindow;
+export class AppComponent implements OnInit {
+  window: BrowserWindow;
   @ViewChild('sidenav') sidenav: MatSidenav;
 
   get maximized(): boolean {
-    return this.win.isMaximized();
+    return this.window.isMaximized();
   }
 
   constructor(
@@ -27,23 +27,21 @@ export class AppComponent implements OnInit{
     translate.setDefaultLang('en');
     this.router.events.subscribe(() => this.sidenav.close());
     console.log('environment', environment);
-
-    if (electronService.isElectron()) {
-      this.win = electronService.remote.getCurrentWindow();
-    }
+    this.window = electronService.remote.getCurrentWindow();
   }
 
   ngOnInit(): void {
     if (!environment.production) {
-      this.electronService.remote.getCurrentWindow().webContents.openDevTools();
+      this.window.webContents.openDevTools();
     }
+    this.sidenav.open();
   }
 
   toggleMaximize() {
     if (this.maximized) {
-      this.win.unmaximize();
+      this.window.unmaximize();
     } else {
-      this.win.maximize();
+      this.window.maximize();
     }
   }
 
