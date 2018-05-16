@@ -1,7 +1,7 @@
 @import '~@angular/material/theming';
 @import '~_variables.scss';
 
-mat-list-item {
+[mat-list-item] {
   p {
     span {
       color: map-get($mat-grey, 600);
