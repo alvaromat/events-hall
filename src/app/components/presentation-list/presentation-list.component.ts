@@ -4,6 +4,7 @@ import { Presentation } from '../../models/presentation';
 import { ElectronService } from '../../providers/electron.service';
 import { MatDialog } from '@angular/material';
 import { NewPresentationDialogComponent } from './new-presentation-dialog/new-presentation-dialog.component';
+import { SidenavService } from '../../providers/sidenav.service';
 
 @Component({
   selector: 'app-presentation-list',
@@ -13,11 +14,11 @@ import { NewPresentationDialogComponent } from './new-presentation-dialog/new-pr
 export class PresentationListComponent implements OnInit {
   presentations: Presentation[];
 
-
   constructor(
     private presentationService: PresentationService,
     private electronService: ElectronService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private sidenavService: SidenavService
   ) {}
 
   ngOnInit() {
@@ -41,5 +42,9 @@ export class PresentationListComponent implements OnInit {
   delete(presentation: Presentation) {
     this.presentations = this.presentations.filter(p => p !== presentation);
     this.presentationService.delete(presentation).subscribe();
+  }
+
+  closeSidenav() {
+    return this.sidenavService.close();
   }
 }

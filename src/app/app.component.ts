@@ -4,7 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { environment } from '../environments/environment';
 import { BrowserWindow } from 'electron';
 import { MatSidenav } from '@angular/material';
-import { Router } from '@angular/router';
+import { SidenavService } from './providers/sidenav.service';
 
 @Component({
   selector: 'app-root',
@@ -22,10 +22,9 @@ export class AppComponent implements OnInit {
   constructor(
     private electronService: ElectronService,
     private translate: TranslateService,
-    private router: Router
+    private sidenavService: SidenavService
   ) {
     translate.setDefaultLang('en');
-    this.router.events.subscribe(() => this.sidenav.close());
     console.log('environment', environment);
     this.window = electronService.remote.getCurrentWindow();
   }
@@ -34,7 +33,7 @@ export class AppComponent implements OnInit {
     if (!environment.production) {
       this.window.webContents.openDevTools();
     }
-    this.sidenav.open();
+    this.sidenavService.Sidenav = this.sidenav;
   }
 
   toggleMaximize() {

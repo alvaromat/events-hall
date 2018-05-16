@@ -25,6 +25,7 @@ import { PresentationListComponent } from './components/presentation-list/presen
 import { PresentationEditorComponent } from './components/presentation-editor/presentation-editor.component';
 import { NewPresentationDialogComponent } from './components/presentation-list/new-presentation-dialog/new-presentation-dialog.component';
 import { MAT_DATE_LOCALE } from '@angular/material';
+import { SidenavService } from './providers/sidenav.service';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -59,6 +60,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   providers: [
     ElectronService,
     PresentationService,
+    SidenavService,
     { provide: MAT_DATE_LOCALE, useValue: 'en_GB' }
   ],
   bootstrap: [AppComponent]
