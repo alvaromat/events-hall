@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { ElectronService } from './providers/electron.service';
 import { TranslateService } from '@ngx-translate/core';
 import { environment } from '../environments/environment';
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   win: BrowserWindow;
   @ViewChild('sidenav') sidenav: MatSidenav;
 
@@ -30,6 +30,12 @@ export class AppComponent {
 
     if (electronService.isElectron()) {
       this.win = electronService.remote.getCurrentWindow();
+    }
+  }
+
+  ngOnInit(): void {
+    if (!environment.production) {
+      this.electronService.remote.getCurrentWindow().webContents.openDevTools();
     }
   }
 
