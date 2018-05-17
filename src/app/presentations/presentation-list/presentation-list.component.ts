@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PresentationService } from '../../providers/presentation.service';
-import { Presentation } from '../../models/presentation';
+import { PresentationService } from '../presentation.service';
+import { Presentation } from '../presentation';
 import { ElectronService } from '../../providers/electron.service';
 import { MatDialog } from '@angular/material';
 import { NewPresentationDialogComponent } from './new-presentation-dialog/new-presentation-dialog.component';

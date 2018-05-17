@@ -16,14 +16,10 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ElectronService } from './providers/electron.service';
 
 import { AppComponent } from './app.component';
-import { PresentationService } from './providers/presentation.service';
-import { PresentationListComponent } from './components/presentation-list/presentation-list.component';
-import { PresentationEditorComponent } from './components/presentation-editor/presentation-editor.component';
-import { NewPresentationDialogComponent } from './components/presentation-list/new-presentation-dialog/new-presentation-dialog.component';
 import { MAT_DATE_LOCALE } from '@angular/material';
 import { SidenavService } from './providers/sidenav.service';
 import { SharedModule } from './shared/shared.module';
-import { DynamicFormsModule } from './dynamic-forms/dynamic-forms.module';
+import { PresentationsModule } from './presentations/presentations.module';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -31,13 +27,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PresentationListComponent,
-    PresentationEditorComponent,
-    NewPresentationDialogComponent
-  ],
-  entryComponents: [NewPresentationDialogComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -50,12 +40,11 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    DynamicFormsModule
+    PresentationsModule
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'en_GB' },
     ElectronService,
-    PresentationService,
     SidenavService
   ],
   bootstrap: [AppComponent]

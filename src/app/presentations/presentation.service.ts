@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Presentation } from '../models/presentation';
-import { PRESENTATIONS } from '../shared/mock-presentations';
+import { Presentation } from './presentation';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
+import { PRESENTATIONS } from '../shared/mock-presentations';
 
 @Injectable()
 export class PresentationService {
