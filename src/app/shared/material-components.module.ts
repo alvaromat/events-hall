@@ -12,7 +12,6 @@ import {
   DateAdapter,
   MatSidenavModule
 } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatMomentDateModule,
   MomentDateAdapter
@@ -20,7 +19,6 @@ import {
 
 @NgModule({
   imports: [
-    BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
@@ -33,7 +31,6 @@ import {
     MatSidenavModule
   ],
   exports: [
-    BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,

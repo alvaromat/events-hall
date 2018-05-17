@@ -1,10 +1,9 @@
-
 import 'reflect-metadata';
 import '../polyfills';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
@@ -16,16 +15,14 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { ElectronService } from './providers/electron.service';
 
-import { WebviewDirective } from './directives/webview.directive';
-
 import { AppComponent } from './app.component';
-import { MaterialComponentsModule } from './/material-components.module';
 import { PresentationService } from './providers/presentation.service';
 import { PresentationListComponent } from './components/presentation-list/presentation-list.component';
 import { PresentationEditorComponent } from './components/presentation-editor/presentation-editor.component';
 import { NewPresentationDialogComponent } from './components/presentation-list/new-presentation-dialog/new-presentation-dialog.component';
 import { MAT_DATE_LOCALE } from '@angular/material';
 import { SidenavService } from './providers/sidenav.service';
+import { SharedModule } from './shared/shared.module';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -35,7 +32,6 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    WebviewDirective,
     PresentationListComponent,
     PresentationEditorComponent,
     NewPresentationDialogComponent
@@ -43,9 +39,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   entryComponents: [NewPresentationDialogComponent],
   imports: [
     BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
     HttpClientModule,
+    SharedModule,
     AppRoutingModule,
     TranslateModule.forRoot({
       loader: {
@@ -53,15 +48,13 @@ export function HttpLoaderFactory(http: HttpClient) {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    }),
-    BrowserAnimationsModule,
-    MaterialComponentsModule
+    })
   ],
   providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'en_GB' },
     ElectronService,
     PresentationService,
-    SidenavService,
-    { provide: MAT_DATE_LOCALE, useValue: 'en_GB' }
+    SidenavService
   ],
   bootstrap: [AppComponent]
 })
