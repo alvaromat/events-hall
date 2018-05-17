@@ -23,6 +23,7 @@ import { NewPresentationDialogComponent } from './components/presentation-list/n
 import { MAT_DATE_LOCALE } from '@angular/material';
 import { SidenavService } from './providers/sidenav.service';
 import { SharedModule } from './shared/shared.module';
+import { DynamicFormsModule } from './dynamic-forms/dynamic-forms.module';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -48,7 +49,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    DynamicFormsModule
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'en_GB' },
