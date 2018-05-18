@@ -1,5 +1,5 @@
 <mat-nav-list>
-  <a mat-list-item *ngFor="let presentation of presentations" routerLink="/edit/{{presentation.id}}" (click)="closeSidenav()">
+  <a mat-list-item *ngFor="let presentation of presentations" routerLink="/presentation/{{presentation.id}}/editing" (click)="closeSidenav()">
     <a matLine>{{ presentation.name }}</a>
     <p matLine>
       <span class="date">{{presentation.date | date: 'shortDate'}}</span>

@@ -1,0 +1,7 @@
+<button *ngIf="show" mat-icon-button (click)="addModule()" [disabled]="cannotAddModules()">
+  <mat-icon>add</mat-icon>
+</button>
+
+<button *ngIf="show" mat-icon-button (click)="toggleEdit()">
+  <mat-icon>{{editing ? "slideshow" : "settings"}}</mat-icon>
+</button>

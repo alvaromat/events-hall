@@ -10,7 +10,9 @@ import {
   MatDatepickerModule,
   MatDialogModule,
   DateAdapter,
-  MatSidenavModule
+  MatSidenavModule,
+  MatGridListModule,
+  MatCardModule
 } from '@angular/material';
 import {
   MatMomentDateModule,
@@ -28,7 +30,9 @@ import {
     MatInputModule,
     MatDatepickerModule,
     MatMomentDateModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatGridListModule,
+    MatCardModule
   ],
   exports: [
     MatToolbarModule,
@@ -40,7 +44,9 @@ import {
     MatInputModule,
     MatDatepickerModule,
     MatMomentDateModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatGridListModule,
+    MatCardModule
   ],
   declarations: []
 })

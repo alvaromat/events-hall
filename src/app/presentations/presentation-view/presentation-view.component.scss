@@ -1,0 +1,14 @@
+$mat-card-padding: 24px;
+$gutter: 16px;
+
+mat-grid-list {
+  height: calc(100% - #{$gutter});
+  width: calc(100% - #{$gutter});
+  top: $gutter/2 ;
+  left: $gutter/2;
+}
+
+mat-card {
+  width: calc(100% - (#{$mat-card-padding} * 2) - #{$gutter});
+  height: calc(100% - (#{$mat-card-padding} * 2) - #{$gutter});
+}
