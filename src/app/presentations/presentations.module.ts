@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
 import { PresentationService } from './presentation.service';
 import { PresentationListComponent } from './presentation-list/presentation-list.component';
-import { NewPresentationDialogComponent } from './presentation-list/new-presentation-dialog/new-presentation-dialog.component';
 import { RouterModule } from '@angular/router';
 import { PresentationViewComponent } from './presentation-view/presentation-view.component';
 import { PresentationButtonsComponent } from './presentation-buttons/presentation-buttons.component';
+import { NewPresentationDialogComponent } from './new-presentation-dialog/new-presentation-dialog.component';
 
 @NgModule({
   // TODO: create local router module and configure it

@@ -3,8 +3,8 @@ import { PresentationService } from '../presentation.service';
 import { Presentation } from '../presentation';
 import { ElectronService } from '../../providers/electron.service';
 import { MatDialog } from '@angular/material';
-import { NewPresentationDialogComponent } from './new-presentation-dialog/new-presentation-dialog.component';
 import { SidenavService } from '../../providers/sidenav.service';
+import { NewPresentationDialogComponent } from '../new-presentation-dialog/new-presentation-dialog.component';
 
 @Component({
   selector: 'app-presentation-list',
