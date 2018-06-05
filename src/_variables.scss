@@ -13,3 +13,6 @@ $warn: mat-color($app-warn);
 $app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
 
 $toolbar-height: 56px;
+
+$mat-card-padding: 24px;
+$gutter: 16px;

@@ -1,13 +1,6 @@
 <mat-grid-list *ngIf="presentation && presentation.modules.length > 0" [cols]="cols" rowHeight="fit">
   <mat-grid-tile *ngFor="let module of presentation.modules; let i = index" [rowspan]="rowspan(i)">
-    <!--
-      Switch con un componente para el form y otro para el módulo.
-      El del módulo a su vez tendra otro switch para sacar el view que corresponda.
-      A ambos se le pasa el objeto JSON configuración. Hay que fijarse en como se hace en
-      la guía para en lugar de usar un modelo usar el objeto configuración
-      (puede ser sacar preguntas de configuración directamente con un serviceProvider, entonces
-      la dificultad radicaría en guardarlas de nuevo en la configuración)
-    -->
-    <mat-card></mat-card>
+    <div class="module" *ngIf="!editing">Module view</div>
+    <app-module-form class="module" *ngIf="editing" [module]="module"></app-module-form>
   </mat-grid-tile>
 </mat-grid-list>

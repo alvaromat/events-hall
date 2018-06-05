@@ -11,7 +11,7 @@ export class SidenavService {
   }
 
   public open(): Promise<void> {
-    if (this.sidenav){
+    if (this.sidenav) {
       return this.sidenav.open();
     }
   }

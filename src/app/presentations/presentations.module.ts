@@ -6,10 +6,11 @@ import { RouterModule } from '@angular/router';
 import { PresentationViewComponent } from './presentation-view/presentation-view.component';
 import { PresentationButtonsComponent } from './presentation-buttons/presentation-buttons.component';
 import { NewPresentationDialogComponent } from './new-presentation-dialog/new-presentation-dialog.component';
+import { ModulesModule } from '../modules/modules.module';
 
 @NgModule({
   // TODO: create local router module and configure it
-  imports: [SharedModule, RouterModule],
+  imports: [SharedModule, RouterModule, ModulesModule],
   declarations: [
     PresentationListComponent,
     NewPresentationDialogComponent,

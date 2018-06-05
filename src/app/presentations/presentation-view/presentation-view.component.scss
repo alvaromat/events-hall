@@ -1,14 +1,16 @@
-$mat-card-padding: 24px;
-$gutter: 16px;
+@import '~_variables.scss';
 
 mat-grid-list {
   height: calc(100% - #{$gutter});
   width: calc(100% - #{$gutter});
-  top: $gutter/2 ;
+  top: $gutter/2;
   left: $gutter/2;
 }
 
-mat-card {
-  width: calc(100% - (#{$mat-card-padding} * 2) - #{$gutter});
-  height: calc(100% - (#{$mat-card-padding} * 2) - #{$gutter});
+.module {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

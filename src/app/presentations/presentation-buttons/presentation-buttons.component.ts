@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
 import { PresentationService } from '../presentation.service';
 import { Presentation } from '../presentation';
+import { Module } from '../../modules/module';
 
 @Component({
   selector: 'app-presentation-buttons',
@@ -49,10 +50,11 @@ export class PresentationButtonsComponent implements OnInit {
     this.router.navigate(route);
   }
 
+  // TODO: show dialog to choose module type.
   addModule() {
     this.presentationService
       .get(+this.presentationId)
-      .subscribe(presentation => presentation.modules.push({}));
+      .subscribe(presentation => presentation.modules.push(new Module()));
   }
 
   cannotAddModules() {

@@ -3,9 +3,14 @@
     "title": "HP Events",
     "close": "Close app"
   },
-  "PAGES": {
-    "HOME": {
-      "TITLE": "App works !"
-    }
+  "modules": {
+    "twitter": "Twitter",
+    "weather": "Weather",
+    "traffic": "Traffic",
+    "player": "Video player"
+  },
+  "module_form": {
+    "select_type": "Module type",
+    "select_type_warn": "Choose the desired module type."
   }
 }
