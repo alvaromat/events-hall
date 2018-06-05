@@ -25,17 +25,12 @@ export class ModuleQuestionsService {
   }
 
   getTwitterQuestions(module: Module) {
-    let itemsValue = '';
-
-    module.configuration['items'].forEach(element => {
-      const firstItem = itemsValue.length === 0;
-      itemsValue = firstItem ? element : `${itemsValue} ${element}`;
-    });
+    const itemsValue = module.configuration['items'] || '';
 
     const questions = [
       new TextboxQuestion({
         key: 'items',
-        label: 'Hashtags or users to spy on',
+        label: 'Hashtags or users to display',
         value: itemsValue,
         required: true
       })

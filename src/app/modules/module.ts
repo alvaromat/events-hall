@@ -8,7 +8,7 @@ export class Module {
     switch (newType) {
       case 'twitter':
         this.configuration = {
-          items: []
+          items: ''
         };
       break;
     }

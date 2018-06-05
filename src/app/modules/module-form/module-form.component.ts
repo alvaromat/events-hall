@@ -25,4 +25,8 @@ export class ModuleFormComponent implements OnInit {
       this.questions = this.questionsService.getQuestions(this.module);
     }
   }
+
+  saveConfiguration(configuration: any) {
+    this.module.configuration = configuration;
+  }
 }
