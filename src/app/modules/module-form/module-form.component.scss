@@ -1,0 +1,22 @@
+@import '~_variables.scss';
+
+mat-card {
+  width: calc(100% - (#{$mat-card-padding} * 2) - #{$gutter});
+  height: calc(100% - (#{$mat-card-padding} * 2) - #{$gutter});
+}
+
+mat-card-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+  * {
+    width: 100%;
+  }
+}
+
+mat-form-field {
+  width: 100%;
+  font-size: 1rem;
+}

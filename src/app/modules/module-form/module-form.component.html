@@ -1,0 +1,21 @@
+<mat-card>
+  <mat-card-title>
+    <mat-form-field>
+      <mat-select [placeholder]="'module_form.select_type' | translate" [(value)]="module.type" (selectionChange)="typeChanged()">
+        <mat-option value="twitter">{{'modules.twitter' | translate}}</mat-option>
+        <mat-option value="player">{{'modules.player' | translate}}</mat-option>
+        <mat-option value="weather">{{'modules.weather' | translate}}</mat-option>
+        <mat-option value="traffic">{{'modules.traffic' | translate}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-card-title>
+  <mat-card-content>
+    <app-dynamic-form *ngIf="module.isValid()" [questions]="questions"></app-dynamic-form>
+    <p *ngIf="!module.isValid()">
+      {{'module_form.select_type_warn' | translate}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>Save</button><button mat-button>Reset</button>
+  </mat-card-actions>
+</mat-card>
