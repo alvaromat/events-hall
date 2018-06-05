@@ -1,12 +1,10 @@
 <div [formGroup]="form">
   <div [ngSwitch]="question.controlType">
 
-    <p>
-      <mat-form-field *ngSwitchCase="'textbox'">
-        <input matInput [formControlName]="question.key" [id]="question.key" [type]="question.type" [placeholder]="question.label">
-        <mat-error *ngIf="!isValid">{{question.label}} is required</mat-error>
-      </mat-form-field>
-    </p>
+    <mat-form-field *ngSwitchCase="'textbox'">
+      <input matInput [formControlName]="question.key" [id]="question.key" [type]="question.type" [placeholder]="question.label">
+      <mat-error *ngIf="!isValid">{{question.label}} is required</mat-error>
+    </mat-form-field>
 
   </div>
 </div>

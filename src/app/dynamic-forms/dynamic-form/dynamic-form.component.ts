@@ -14,6 +14,7 @@ export class DynamicFormComponent implements OnInit {
   @Input() questions: QuestionBase<any>[] = [];
   form: FormGroup;
   payLoad = '';
+  @Input() showSubmit = false;
 
   constructor(private qcs: QuestionControlService) {  }
 
