@@ -18,7 +18,7 @@ export class NewPresentationDialogComponent implements OnInit {
     private electron: ElectronService,
     @Inject(MAT_DIALOG_DATA) public data?: Presentation
   ) {
-    this.presentation = data || {name: '', date: new Date(), modules: []};
+    this.presentation = data;
   }
 
   ngOnInit() {

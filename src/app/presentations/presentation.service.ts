@@ -6,6 +6,7 @@ import { PRESENTATIONS } from '../shared/mock-presentations';
 
 @Injectable()
 export class PresentationService {
+
   private presentations = PRESENTATIONS;
 
   constructor() {}
@@ -31,5 +32,13 @@ export class PresentationService {
      return of(this.presentations.find(
       (presentation: Presentation) => presentation.id === id
     ));
+  }
+
+  getNewInstance(): Presentation {
+    let maxId = 0;
+    this.presentations.forEach(presentation => {
+      if (presentation.id > maxId) { maxId = presentation.id; }
+    });
+    return new Presentation(maxId++);
   }
 }

@@ -28,7 +28,9 @@ export class PresentationListComponent implements OnInit {
   }
 
   create() {
-    const dialogRef = this.dialog.open(NewPresentationDialogComponent);
+    const dialogRef = this.dialog.open(NewPresentationDialogComponent, {
+      data: this.presentationService.getNewInstance()
+    });
 
     dialogRef.afterClosed().subscribe(resultPresentation => {
       if (resultPresentation) {
