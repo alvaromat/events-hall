@@ -3,13 +3,15 @@
 mat-card {
   width: calc(100% - (#{$mat-card-padding} * 2) - #{$gutter});
   height: calc(100% - (#{$mat-card-padding} * 2) - #{$gutter});
+  display: flex;
+  flex-flow: column;
 }
 
 mat-card-content {
   display: flex;
-  align-items: center;
+  //align-items: center;
   justify-content: center;
-
+  flex: 1;
 
   * {
     width: 100%;
