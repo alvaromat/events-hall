@@ -15,7 +15,12 @@ export class DynamicFormComponent implements OnInit {
 
   @Input() questions: QuestionBase<any>[] = [];
   form: FormGroup;
+
+  @Input() submitButton = true;
+  @Input() removeButton = false;
+
   @Output() save = new EventEmitter<Object>();
+  @Output() remove = new EventEmitter<any>();
 
   constructor(private qcs: QuestionControlService) {  }
 

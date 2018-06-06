@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-title>
     <mat-form-field>
-      <mat-select [placeholder]="'module_form.select_type' | translate" [(value)]="module.type" (selectionChange)="typeChanged()">
+      <mat-select [placeholder]="'module_form.select_type' | translate" [(value)]="module.type" (selectionChange)="typeChanged($event)">
         <mat-option value="twitter">{{'modules.twitter' | translate}}</mat-option>
         <mat-option value="player">{{'modules.player' | translate}}</mat-option>
         <mat-option value="weather">{{'modules.weather' | translate}}</mat-option>
@@ -10,10 +10,13 @@
     </mat-form-field>
   </mat-card-title>
   <mat-card-content>
-    <app-dynamic-form #dynform *ngIf="module.isValid()" [questions]="questions" (save)="saveConfiguration($event)"></app-dynamic-form>
+    <app-dynamic-form removeButton="true" *ngIf="module.isValid()" [questions]="questions" (save)="saveConfiguration($event)" (remove)="removeMe()"></app-dynamic-form>
     <p *ngIf="!module.isValid()">
       {{'module_form.select_type_warn' | translate}}
     </p>
   </mat-card-content>
+  <div *ngIf="!module.isValid()">
+    <button mat-button color="warn" (click)="removeMe()">{{'remove' | translate}}</button>
+  </div>
 
 </mat-card>

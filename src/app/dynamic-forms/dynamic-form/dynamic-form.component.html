@@ -7,6 +7,7 @@
     <div class="filling">
     </div>
     <div>
-        <button mat-button type="submit" [disabled]="form.invalid">Save</button>
+        <button *ngIf="submitButton" mat-button type="submit" [disabled]="form.invalid">Save</button>
+        <button *ngIf="removeButton" mat-button type="button" color="warn" (click)="remove.emit($event)">{{'remove' | translate}}</button>
     </div>
   </form>
