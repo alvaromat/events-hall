@@ -1,12 +1,13 @@
 {
-  "productName": "events-hall",
+  "productName": "HP Events",
   "directories": {
     "output": "app-builds"
   },
   "win": {
     "icon": "dist",
     "target": [
-      "portable"
+      "portable",
+      "nsis"
     ]
   },
   "mac": {
