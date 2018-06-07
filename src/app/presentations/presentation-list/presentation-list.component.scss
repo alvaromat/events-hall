@@ -1,6 +1,10 @@
 @import '~@angular/material/theming';
 @import '~_variables.scss';
 
+mat-nav-list {
+  min-width: 275px;
+}
+
 [mat-list-item] {
   p {
     span {
@@ -37,7 +41,7 @@ button {
 }
 
 .nopresentations {
-  min-width: 300px;
+  min-width: 275px;
   color: map-get($mat-grey, 600);
   text-align: center;
 }
