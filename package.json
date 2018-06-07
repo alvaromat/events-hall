@@ -38,8 +38,7 @@
   "dependencies": {
     "@angular/animations": "^5.2.10",
     "@angular/cdk": "^5.2.5",
-    "@angular/material": "^5.2.5",
-    "material-design-icons": "^3.0.1"
+    "@angular/material": "^5.2.5"
   },
   "devDependencies": {
     "@angular/cli": "1.7.4",
@@ -65,8 +64,8 @@
     "core-js": "2.5.5",
     "cross-env": "5.1.4",
     "dotenv": "5.0.1",
-    "electron": "1.8.4",
-    "electron-builder": "20.8.1",
+    "electron": "2.0.2",
+    "electron-builder": "20.15.1",
     "electron-reload": "1.2.2",
     "fs-extra": "5.0.0",
     "jasmine-core": "2.99.1",
