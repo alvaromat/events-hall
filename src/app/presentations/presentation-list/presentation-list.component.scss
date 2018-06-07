@@ -35,3 +35,9 @@ button {
     }
   }
 }
+
+.nopresentations {
+  min-width: 300px;
+  color: map-get($mat-grey, 600);
+  text-align: center;
+}

@@ -13,5 +13,9 @@
   "module_form": {
     "select_type": "Module type",
     "select_type_warn": "Choose the desired module type."
+  },
+  "presentation_list": {
+    "no_presentations": "There are no presentations.",
+    "create": "Create one"
   }
 }

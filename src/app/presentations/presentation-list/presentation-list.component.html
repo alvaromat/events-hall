@@ -11,6 +11,11 @@
   </a>
 </mat-nav-list>
 
+<div *ngIf="presentations.length === 0" class="nopresentations">
+  <p>{{'presentation_list.no_presentations' | translate}}</p>
+  <a (click)="create()" href="javascript:">{{'presentation_list.create' | translate}}</a>
+</div>
+
 <button (click)="create()" class="floating-button" mat-fab color="primary">
   <mat-icon aria-label="Create new presentation">add</mat-icon>
 </button>

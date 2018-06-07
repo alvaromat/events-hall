@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PresentationService } from '../presentation.service';
 import { Presentation } from '../presentation';
-import { ElectronService } from '../../providers/electron.service';
 import { MatDialog } from '@angular/material';
 import { SidenavService } from '../../providers/sidenav.service';
 import { NewPresentationDialogComponent } from '../new-presentation-dialog/new-presentation-dialog.component';
@@ -16,7 +15,6 @@ export class PresentationListComponent implements OnInit {
 
   constructor(
     private presentationService: PresentationService,
-    private electronService: ElectronService,
     private dialog: MatDialog,
     private sidenavService: SidenavService
   ) {}
