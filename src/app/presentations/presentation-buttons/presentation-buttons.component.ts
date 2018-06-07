@@ -38,7 +38,12 @@ export class PresentationButtonsComponent implements OnInit {
         this.presentationId = routeSnapshot.paramMap.get('id');
         this.presentationService
           .get(+this.presentationId)
-          .subscribe(presentation => (this.presentation = presentation));
+          .subscribe(presentation => {
+            this.presentation = presentation;
+            if (this.presentation === undefined) {
+              this.show = false;
+            }
+          });
       });
   }
 
@@ -50,7 +55,6 @@ export class PresentationButtonsComponent implements OnInit {
     this.router.navigate(route);
   }
 
-  // TODO: show dialog to choose module type.
   addModule() {
     this.presentationService
       .get(+this.presentationId)
