@@ -5,6 +5,9 @@ import { environment } from '../environments/environment';
 import { BrowserWindow } from 'electron';
 import { MatSidenav } from '@angular/material';
 import { SidenavService } from './providers/sidenav.service';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { filter, map } from 'rxjs/operators';
+import { PresentationService } from './presentations/presentation.service';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +17,7 @@ import { SidenavService } from './providers/sidenav.service';
 export class AppComponent implements OnInit {
   window: BrowserWindow;
   @ViewChild('sidenav') sidenav: MatSidenav;
+  title: string;
 
   get maximized(): boolean {
     return this.window.isMaximized();
@@ -22,7 +26,10 @@ export class AppComponent implements OnInit {
   constructor(
     private electronService: ElectronService,
     private translate: TranslateService,
-    private sidenavService: SidenavService
+    private sidenavService: SidenavService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private presentationService: PresentationService
   ) {
     translate.setDefaultLang('en');
     console.log('environment', environment);
@@ -34,6 +41,10 @@ export class AppComponent implements OnInit {
       this.window.webContents.openDevTools();
     }
     this.sidenavService.Sidenav = this.sidenav;
+
+    this.translate.get('toolbar.title').subscribe((res: string) => this.title = res);
+
+    this.suscribeToRouteChanges();
   }
 
   toggleMaximize() {
@@ -42,6 +53,25 @@ export class AppComponent implements OnInit {
     } else {
       this.window.maximize();
     }
+  }
+
+  suscribeToRouteChanges(): void {
+    this.router.events
+      .pipe(
+        filter(
+          event => event instanceof NavigationEnd
+        ),
+        map(() => this.route.firstChild.snapshot)
+      )
+      .subscribe(routeSnapshot => {
+        if (routeSnapshot.url[0] && routeSnapshot.url[0].path === 'presentation') {
+          this.presentationService
+            .get(+routeSnapshot.paramMap.get('id'))
+            .subscribe(presentation => this.title = presentation.name);
+        } else {
+            this.translate.get('toolbar.title').subscribe((res: string) => this.title = res);
+        }
+      });
   }
 
   quit(): void {

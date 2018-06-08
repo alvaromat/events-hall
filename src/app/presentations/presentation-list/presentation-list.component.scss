@@ -5,7 +5,7 @@ mat-nav-list {
   min-width: 275px;
 }
 
-[mat-list-item] {
+mat-list-item {
   p {
     span {
       color: map-get($mat-grey, 600);

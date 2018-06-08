@@ -24,27 +24,7 @@ export class PresentationButtonsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.router.events
-      .pipe(
-        filter(
-          event =>
-            event instanceof NavigationEnd && Boolean(this.route.firstChild)
-        ),
-        map((event: NavigationEnd) => this.route.firstChild.snapshot)
-      )
-      .subscribe(routeSnapshot => {
-        this.show = routeSnapshot.url[0].path === 'presentation';
-        this.editing = Boolean(routeSnapshot.paramMap.get('editing'));
-        this.presentationId = routeSnapshot.paramMap.get('id');
-        this.presentationService
-          .get(+this.presentationId)
-          .subscribe(presentation => {
-            this.presentation = presentation;
-            if (this.presentation === undefined) {
-              this.show = false;
-            }
-          });
-      });
+    this.suscribeToRouteChanges();
   }
 
   toggleEdit() {
@@ -63,5 +43,31 @@ export class PresentationButtonsComponent implements OnInit {
 
   cannotAddModules() {
     return this.presentation.modules.length >= 6;
+  }
+
+  suscribeToRouteChanges() {
+    this.router.events
+      .pipe(
+        filter(
+          event =>
+            event instanceof NavigationEnd && Boolean(this.route.firstChild)
+        ),
+        map((event: NavigationEnd) => this.route.firstChild.snapshot)
+      )
+      .subscribe(routeSnapshot => {
+        if (routeSnapshot.url[0] && routeSnapshot.url[0].path === 'presentation') {
+          this.show = true;
+          this.editing = Boolean(routeSnapshot.paramMap.get('editing'));
+          this.presentationId = routeSnapshot.paramMap.get('id');
+          this.presentationService
+            .get(+this.presentationId)
+            .subscribe(presentation => {
+              this.presentation = presentation;
+              if (this.presentation === undefined) {
+                this.show = false;
+              }
+            });
+        }
+      });
   }
 }
