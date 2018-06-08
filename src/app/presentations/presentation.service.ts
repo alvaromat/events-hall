@@ -50,7 +50,7 @@ export class PresentationService {
   }
 
   delete(presentation: Presentation): Observable<Presentation> {
-    this.presentations = this.presentations.filter(p => p !== presentation);
+    this.presentations = this.presentations.filter(p => p.id !== presentation.id);
     this.save();
     return of(presentation);
   }
