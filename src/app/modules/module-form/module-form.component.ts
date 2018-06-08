@@ -11,6 +11,7 @@ import { MatSelectChange } from '@angular/material';
 export class ModuleFormComponent implements OnInit {
   @Input() module: Module;
   @Output() remove = new EventEmitter<Module>();
+  @Output() configurationChanged = new EventEmitter<null>();
   questions;
 
   constructor(private questionsService: ModuleQuestionsService) {}
@@ -29,6 +30,7 @@ export class ModuleFormComponent implements OnInit {
 
   saveConfiguration(configuration: any) {
     this.module.configuration = configuration;
+    this.configurationChanged.emit();
   }
 
   removeMe() {

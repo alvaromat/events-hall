@@ -33,7 +33,8 @@ export class PresentationService {
       window.localStorage.setItem(PRESENTATIONS, JSON.stringify(presentations));
     } else {
       try {
-        presentations = JSON.parse(window.localStorage.getItem(PRESENTATIONS));
+        const JSONpresentations = JSON.parse(window.localStorage.getItem(PRESENTATIONS));
+        presentations = JSONpresentations.map((p) => Presentation.fromJsonObject(p));
       } catch (e) {
         presentations = [];
       }

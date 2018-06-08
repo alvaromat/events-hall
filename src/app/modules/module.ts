@@ -16,8 +16,14 @@ export class Module {
 
   configuration: Object;
 
-  constructor(name?: string) {
-    this.type = name || undefined;
+  constructor(type?: string) {
+    this.type = type || undefined;
+  }
+
+  static fromJsonObject(o): Module {
+    const module = new Module(o._type);
+    module.configuration = o.configuration;
+    return module;
   }
 
   isValid(): Boolean {

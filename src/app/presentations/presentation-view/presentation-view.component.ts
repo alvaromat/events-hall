@@ -10,7 +10,7 @@ import { Module } from '../../modules/module';
   templateUrl: './presentation-view.component.html',
   styleUrls: ['./presentation-view.component.scss']
 })
-export class PresentationViewComponent implements OnInit, OnChanges {
+export class PresentationViewComponent implements OnInit {
   presentation: Presentation;
   editing: boolean;
 
@@ -31,11 +31,7 @@ export class PresentationViewComponent implements OnInit, OnChanges {
         tap(params => this.editing = Boolean(params.get('editing'))),
         switchMap(params => this.presentationService.get(+params.get('id')))
       )
-      .subscribe(presentation => (this.presentation = presentation));
-  }
-
-  ngOnChanges() {
-    console.log('something changed');
+      .subscribe(presentation => this.presentation = presentation);
   }
 
   rowspan(index: number): number {
@@ -55,5 +51,9 @@ export class PresentationViewComponent implements OnInit, OnChanges {
 
   remove(moduleToRemove: Module) {
     this.presentation.modules = this.presentation.modules.filter((module: Module) => module !== moduleToRemove);
+  }
+
+  save() {
+    this.presentationService.update(this.presentation).subscribe();
   }
 }
