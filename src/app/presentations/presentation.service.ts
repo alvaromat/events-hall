@@ -2,14 +2,12 @@ import { Injectable } from '@angular/core';
 import { Presentation } from './presentation';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
-import { timer } from 'rxjs/observable/timer';
 
 const PRESENTATIONS = 'presentations';
-const STORE_INTERVAL = 1000 * 60;
 
 @Injectable()
 export class PresentationService {
-  private presentations = undefined;
+  private presentations: Presentation[] = undefined;
 
   constructor() {}
 
@@ -17,7 +15,12 @@ export class PresentationService {
     if (this.presentations === undefined) {
       this.presentations = this.loadPresentations();
     }
-    return of(this.presentations);
+
+    const presentations = this.presentations.map(presentation =>
+      Object.assign({}, presentation)
+    );
+
+    return of(presentations);
   }
 
   /**
@@ -36,23 +39,33 @@ export class PresentationService {
       }
     }
 
-    const source = timer(STORE_INTERVAL, STORE_INTERVAL);
-    source.subscribe(this.save);
-
     return presentations;
   }
 
   add(presentation: Presentation): Observable<Presentation> {
     this.presentations.unshift(presentation);
+    this.save();
     return of(presentation);
   }
 
   delete(presentation: Presentation): Observable<Presentation> {
     this.presentations = this.presentations.filter(p => p !== presentation);
+    this.save();
     return of(presentation);
   }
 
-  get(id: number) {
+  update(newPresentation: Presentation): Observable<Presentation> {
+    const index = this.presentations.findIndex((presentation) => presentation.id === newPresentation.id);
+    if (index !== -1) {
+      this.presentations[index] = newPresentation;
+      this.save();
+      return of(newPresentation);
+    } else {
+      return Observable.throw(new Error('Id not found'));
+    }
+  }
+
+  get(id: number): Observable<Presentation> {
      return of(this.presentations.find(
       (presentation: Presentation) => presentation.id === id
     ));
@@ -61,7 +74,7 @@ export class PresentationService {
   /**
    * Stores the presentations in local storage.
    */
-  save() {
+  private save() {
     window.localStorage.setItem(PRESENTATIONS, JSON.stringify(this.presentations));
   }
 
@@ -70,6 +83,6 @@ export class PresentationService {
     this.presentations.forEach(presentation => {
       if (presentation.id > maxId) { maxId = presentation.id; }
     });
-    return new Presentation(maxId++);
+    return new Presentation(maxId + 1);
   }
 }
