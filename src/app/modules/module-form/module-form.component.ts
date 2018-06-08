@@ -35,5 +35,6 @@ export class ModuleFormComponent implements OnInit {
 
   removeMe() {
     this.remove.emit(this.module);
+    this.configurationChanged.emit();
   }
 }
