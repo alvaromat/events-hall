@@ -1,4 +1,4 @@
-<button *ngIf="show" mat-icon-button (click)="addModule()" [disabled]="cannotAddModules()">
+<button *ngIf="show && editing" mat-icon-button (click)="addModule()" [disabled]="cannotAddModules()">
   <mat-icon>add</mat-icon>
 </button>
 
