@@ -20,7 +20,10 @@ function createWindow() {
   win = new BrowserWindow({
     frame: false,
     minWidth: 800,
-    minHeight: 600
+    minHeight: 600,
+    webPreferences: {
+      webSecurity: false
+    }
   });
 
   if (serve) {

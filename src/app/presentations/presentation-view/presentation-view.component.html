@@ -1,6 +1,8 @@
 <mat-grid-list *ngIf="presentation && presentation.modules.length > 0" [cols]="cols" rowHeight="fit">
   <mat-grid-tile *ngFor="let module of presentation.modules; let i = index" [rowspan]="rowspan(i)">
-    <div class="module" *ngIf="!editing">Module view</div>
-    <app-module-form class="module" *ngIf="editing" [module]="module" (remove)="remove($event)" (configurationChanged)="save()"></app-module-form>
+    <div class="fill_parent" *ngIf="!editing" [ngSwitch]="module.type">
+      <app-twitter class="fill_parent" [configuration]="module.configuration" *ngSwitchCase="'twitter'"></app-twitter>
+    </div>
+    <app-module-form class="fill_parent" *ngIf="editing" [module]="module" (remove)="remove($event)" (configurationChanged)="save()"></app-module-form>
   </mat-grid-tile>
 </mat-grid-list>

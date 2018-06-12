@@ -27,6 +27,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
+    HttpClientModule
   ],
   exports: [
     CommonModule,

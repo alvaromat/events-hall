@@ -1,0 +1,8 @@
+@import '~_variables.scss';
+
+mat-card {
+  width: calc(100% - (#{$mat-card-padding} * 2) - #{$gutter});
+  height: calc(100% - (#{$mat-card-padding} * 2) - #{$gutter});
+  display: flex;
+  flex-flow: column;
+}

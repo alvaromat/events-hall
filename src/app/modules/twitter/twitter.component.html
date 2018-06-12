@@ -1,0 +1,9 @@
+<mat-card>
+  <mat-list>
+    <mat-list-item *ngFor="let twit of twits">
+      <h3 matLine>{{twit.user.name}} <small>(@{{twit.user.screen_name}})</small></h3>
+      <img matListAvatar src="{{twit.user.profile_image_url_https}}" alt="...">
+      <p matLine>{{twit.full_text}}</p>
+    </mat-list-item>
+  </mat-list>
+</mat-card>
