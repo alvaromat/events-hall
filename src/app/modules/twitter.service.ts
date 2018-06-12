@@ -62,7 +62,7 @@ export class TwitterService {
       );
   }
 
-  search(terms: string, extended = false, since = 0) {
+  search(terms: string, extended = false, since: number | string = 0) {
     return this.getAuthHeader().pipe(
       switchMap(authHeader => {
         let params = new HttpParams().set('q', encodeURIComponent(terms));
