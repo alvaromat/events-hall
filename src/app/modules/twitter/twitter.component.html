@@ -1,6 +1,7 @@
 <mat-card>
+  <div class="gradient_top"></div>
   <mat-list>
-    <mat-list-item *ngFor="let twit of twits">
+    <mat-list-item *ngFor="let twit of twits.slice(0, 15)" [@add]="'in'" (@add.done)="displayTwit($event)">
       <h3 matLine>{{twit.user.name}}
         <small>(@{{twit.user.screen_name}})</small>
       </h3>
@@ -8,5 +9,5 @@
       <p class="twitbody" matLine>{{twit.full_text}}</p>
     </mat-list-item>
   </mat-list>
-  <div class="gradient"></div>
+  <div class="gradient_bottom"></div>
 </mat-card>

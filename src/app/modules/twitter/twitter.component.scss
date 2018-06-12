@@ -22,7 +22,15 @@ mat-list {
   border-top: 0px;
 }
 
-.gradient {
+.gradient_top {
+  position:absolute;
+  z-index:2;
+  right:0; top:0; left:0;
+  height: 40px;
+  background: linear-gradient(to top,  transparent,white 30%);
+}
+
+.gradient_bottom {
   position:absolute;
   z-index:2;
   right:0; bottom:0; left:0;
