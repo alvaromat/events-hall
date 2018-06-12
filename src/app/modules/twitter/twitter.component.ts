@@ -11,7 +11,7 @@ import { ISubscription } from 'rxjs/Subscription';
 export class TwitterComponent implements OnInit, OnDestroy {
   @Input() configuration: any;
 
-  twits: Array<Object> = new Array();
+  twits: Array<any> = new Array();
 
   private cyclicSearch: ISubscription;
 
