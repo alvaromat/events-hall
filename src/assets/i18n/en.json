@@ -17,7 +17,7 @@
   "twitter": {
     "info_label": "Information",
     "info_value":
-      "Find tweets containing the items you want. You can use operators as described in <a href=\"https://twitter.com/search-home/\">the twitter search page</a>.<br><small>Examples: Group items double-quoting them (\"Game of Thrones\"). Use keyword OR to search for multiple terms (@BarackObama OR @realDonaldTrump).</small>",
+      "Find tweets containing the terms you want. You can use operators as described in <a href=\"https://twitter.com/search-home/\">the twitter search page</a>.<br><small>Examples: Group items double-quoting them (\"Game of Thrones\"). Use keyword OR to search for multiple terms (@BarackObama OR @realDonaldTrump).</small>",
     "items_label": "Items",
     "refresh_label": "Refresh time (seconds)"
   },

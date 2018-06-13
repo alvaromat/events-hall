@@ -3,9 +3,9 @@
     <mat-form-field>
       <mat-select [placeholder]="'module_form.select_type' | translate" [(value)]="module.type" (selectionChange)="typeChanged($event)">
         <mat-option value="twitter">{{'modules.twitter' | translate}}</mat-option>
-        <mat-option value="player">{{'modules.player' | translate}}</mat-option>
-        <mat-option value="weather">{{'modules.weather' | translate}}</mat-option>
-        <mat-option value="traffic">{{'modules.traffic' | translate}}</mat-option>
+        <mat-option disabled value="player">{{'modules.player' | translate}}</mat-option>
+        <mat-option disabled value="weather">{{'modules.weather' | translate}}</mat-option>
+        <mat-option disabled value="traffic">{{'modules.traffic' | translate}}</mat-option>
       </mat-select>
     </mat-form-field>
 
