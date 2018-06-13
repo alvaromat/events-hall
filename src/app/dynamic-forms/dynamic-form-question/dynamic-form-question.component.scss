@@ -1,3 +1,17 @@
+@import '~_variables.scss';
+
 mat-form-field {
   width: 100%;
+}
+
+.dynamic-label{
+  p.title {
+    color: mat-color($app-grey);
+    transform: scale(0.75);
+    transform-origin: 0;
+    margin-bottom: 0px;
+  }
+  p {
+    margin-top: 0px;
+  }
 }
