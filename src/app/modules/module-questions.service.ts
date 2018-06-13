@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
-import { QuestionBase } from '../dynamic-forms/question-base';
 import { TextboxQuestion } from '../dynamic-forms/question-textbox';
 import { Module } from './module';
+import { Label } from '../dynamic-forms/label';
 
 @Injectable()
 export class ModuleQuestionsService {
+
   getQuestions(module: Module) {
     const methodForThisModule = this.getMethodName(module);
     if (this[methodForThisModule]) {
       return this[methodForThisModule](module);
     } else {
-      console.error(
-        `ModuleQuestionsService: Could not get questions for module ${module.type}`
+      console.error(`ModuleQuestionsService: Could not get questions for module ${module.type}`
       );
     }
   }
@@ -25,13 +25,22 @@ export class ModuleQuestionsService {
   }
 
   getTwitterQuestions(module: Module) {
-    const itemsValue = module.configuration['items'] || '';
-
     const questions = [
+      new Label({
+        label: 'twitter.info_label',
+        value: 'twitter.info_value'
+      }),
       new TextboxQuestion({
         key: 'items',
-        label: 'Hashtags or users to display',
-        value: itemsValue,
+        label: 'twitter.items_label',
+        value: module.configuration['items'] || '',
+        required: true
+      }),
+      new TextboxQuestion({
+        key: 'refreshTime',
+        label: 'twitter.refresh_label',
+        value: module.configuration['refreshTime'] || 60,
+        type: 'number',
         required: true
       })
     ];

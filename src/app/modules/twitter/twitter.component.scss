@@ -26,7 +26,7 @@ mat-list {
   position:absolute;
   z-index:2;
   right:0; top:0; left:0;
-  height: 40px;
+  height: 50px;
   background: linear-gradient(to top,  transparent,white 30%);
 }
 
@@ -34,6 +34,6 @@ mat-list {
   position:absolute;
   z-index:2;
   right:0; bottom:0; left:0;
-  height: 100px;
+  height: 50px;
   background: linear-gradient(to bottom,  transparent,white 50%);
 }

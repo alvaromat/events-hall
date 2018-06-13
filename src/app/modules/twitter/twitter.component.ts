@@ -49,7 +49,6 @@ export class TwitterComponent implements OnInit, OnDestroy {
         subscribe(result => {
           this.newTwits = this.newTwits.concat(result['statuses']);
           this.displayTwit(undefined);
-          console.log('Recv new twits');
         });
     });
   }
