@@ -13,7 +13,6 @@ try {
 }
 
 function createWindow() {
-
   const electronScreen = screen;
 
   // Create the browser window.
@@ -28,15 +27,37 @@ function createWindow() {
 
   if (serve) {
     require('electron-reload')(__dirname, {
-     electron: require(`${__dirname}/node_modules/electron`)});
+      electron: require(`${__dirname}/node_modules/electron`)
+    });
     win.loadURL('http://localhost:4200');
   } else {
-    win.loadURL(url.format({
-      pathname: path.join(__dirname, 'dist/index.html'),
-      protocol: 'file:',
-      slashes: true
-    }));
+    win.loadURL(
+      url.format({
+        pathname: path.join(__dirname, 'dist/index.html'),
+        protocol: 'file:',
+        slashes: true
+      })
+    );
   }
+
+  // Logic to open external links in browser
+
+  function isExternalURL(_url) {
+    if (serve && _url.startsWith('http://localhost:4200')) {
+      return false;
+    }
+
+    return _url.startsWith('http:') || _url.startsWith('https:');
+  }
+
+  const shell = require('electron').shell;
+
+  win.webContents.on('will-navigate', (event, _url) => {
+    if (isExternalURL(_url)) {
+      event.preventDefault();
+      shell.openExternal(_url);
+    }
+  });
 
   // Emitted when the window is closed.
   win.on('closed', () => {
@@ -48,7 +69,6 @@ function createWindow() {
 }
 
 try {
-
   // This method will be called when Electron has finished
   // initialization and is ready to create browser windows.
   // Some APIs can only be used after this event occurs.
@@ -70,7 +90,6 @@ try {
       createWindow();
     }
   });
-
 } catch (e) {
   // Catch Error
   // throw e;
