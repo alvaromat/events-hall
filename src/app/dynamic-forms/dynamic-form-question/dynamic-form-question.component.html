@@ -3,16 +3,14 @@
 
     <div *ngSwitchCase="'label'" class="dynamic-label">
       <p *ngIf="question.label !== ''" class="title">
-        {{question.label}}
+        {{question.label | translate}}
       </p>
-      <p>
-        {{question.value}}
-      </p>
+      <p [innerHTML]="question.value | translate"></p>
     </div>
 
     <mat-form-field *ngSwitchCase="'textbox'">
-      <input matInput [formControlName]="question.key" [id]="question.key" [type]="question['type']" [placeholder]="question.label">
-      <mat-error *ngIf="!isValid">{{question.label}} is required</mat-error>
+      <input matInput [formControlName]="question.key" [id]="question.key" [type]="question['type']" [placeholder]="question.label | translate">
+      <mat-error *ngIf="!isValid">{{question.label | translate}} {{ 'dynamic_forms.is_required' | translate}}.</mat-error>
     </mat-form-field>
 
   </div>
