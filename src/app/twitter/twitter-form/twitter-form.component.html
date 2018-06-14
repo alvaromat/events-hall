@@ -1,20 +1,32 @@
-<form>
-
+<form #form="ngForm">
   <div class="app-info">
     <p>{{'twitter.info_label' | translate}}</p>
     <p [innerHTML]="'twitter.info_value' | translate"></p>
     <p>
-      <button class="operators-help" mat-button (click)="showOperators()"> <span class="button-text mat-button-wrapper"><mat-icon>help_outline</mat-icon> {{'twitter.show_operators' | translate}}</span></button>
+      <button type="button" class="operators-help" mat-button (click)="showOperators()">
+        <span class="button-text mat-button-wrapper">
+          <mat-icon>help_outline</mat-icon> {{'twitter.show_operators' | translate}}</span>
+      </button>
     </p>
   </div>
 
   <mat-form-field>
     <input [(ngModel)]="configuration.items" name="items" matInput type="text" [placeholder]="'twitter.items_label' | translate"
       required>
+    <mat-error *ngIf="itemsFormControl.hasError('required')">
+      {{ 'twitter.items_label' | translate }} {{ 'forms.is_required' | translate }}
+    </mat-error>
   </mat-form-field>
 
   <mat-form-field>
-    <input [(ngModel)]="configuration.refreshTime" name="refreshTime" matInput type="number" [placeholder]="'twitter.refresh_label' | translate"
+    <input [(ngModel)]="configuration.refreshTime" min="5" name="refreshTime" matInput type="number" [placeholder]="'twitter.refresh_label' | translate"
       required>
+    <mat-error *ngIf="refreshFormControl.hasError('required')">
+      {{ 'twitter.refresh_label' | translate }} {{ 'forms.is_required' | translate }}
+    </mat-error>
+
+    <mat-error *ngIf="refreshFormControl.hasError('min')">
+      {{ 'twitter.refresh_label_min' | translate }}
+    </mat-error>
   </mat-form-field>
 </form>

@@ -21,7 +21,7 @@
 
         <div [ngSwitch]="module.type">
           <!-- Poner aquí unfloating con el (remove)="remove($event)" -->
-          <app-twitter-form class="fill_parent" [configuration]="module.configuration" *ngSwitchCase="'twitter'"></app-twitter-form>
+          <app-twitter-form class="fill_parent" (save)="save()" [configuration]="module.configuration" *ngSwitchCase="'twitter'"></app-twitter-form>
         </div>
       </mat-card-content>
 
