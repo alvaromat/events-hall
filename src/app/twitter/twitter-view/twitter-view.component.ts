@@ -1,13 +1,13 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { TwitterService } from '../twitter.service';
+import { TwitterService } from '../../twitter/twitter.service';
 import { timer } from 'rxjs/observable/timer';
 import { ISubscription } from 'rxjs/Subscription';
 import { trigger, state, transition, style, animate, AnimationEvent } from '@angular/animations';
 
 @Component({
-  selector: 'app-twitter',
-  templateUrl: './twitter.component.html',
-  styleUrls: ['./twitter.component.scss'],
+  selector: 'app-twitter-view',
+  templateUrl: './twitter-view.component.html',
+  styleUrls: ['./twitter-view.component.scss'],
   animations: [
     trigger('add', [
       state('in', style({transform: 'translateY(0)', height: '*', padding: '*'})),
@@ -18,7 +18,7 @@ import { trigger, state, transition, style, animate, AnimationEvent } from '@ang
     ])
   ]
 })
-export class TwitterComponent implements OnInit, OnDestroy {
+export class TwitterViewComponent implements OnInit, OnDestroy {
   @Input() configuration: any;
 
   twits = new Array<any>();

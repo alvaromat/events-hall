@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TwitterComponent } from './twitter.component';
+import { TwitterFormComponent } from './twitter-form.component';
 
-describe('TwitterComponent', () => {
-  let component: TwitterComponent;
-  let fixture: ComponentFixture<TwitterComponent>;
+describe('TwitterFormComponent', () => {
+  let component: TwitterFormComponent;
+  let fixture: ComponentFixture<TwitterFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TwitterComponent ]
+      declarations: [ TwitterFormComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TwitterComponent);
+    fixture = TestBed.createComponent(TwitterFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

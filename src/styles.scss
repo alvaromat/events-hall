@@ -17,3 +17,19 @@ app-root {
   left: 0;
   right: 0;
 }
+
+mat-form-field, form {
+  width: 100%;
+}
+
+.app-info{
+  p:first-child {
+    color: mat-color($app-grey);
+    transform: scale(0.75);
+    transform-origin: 0;
+    margin-bottom: 0px;
+  }
+  p {
+    margin-top: 0px;
+  }
+}

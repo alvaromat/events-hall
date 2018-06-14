@@ -1,0 +1,21 @@
+<form>
+
+  <div class="app-info">
+    <p>{{'twitter.info_label' | translate}}</p>
+    <p [innerHTML]="'twitter.info_value' | translate"></p>
+    <p>
+      <button class="operators-help" mat-button (click)="showOperators()"><mat-icon>help_outline</mat-icon> {{'twitter.show_operators' | translate}}</button>
+    </p>
+  </div>
+
+  <mat-form-field>
+    <input [(ngModel)]="configuration.items" name="items" matInput type="text" [placeholder]="'twitter.items_label' | translate"
+      required>
+    <!-- <mat-error *ngIf="!isValid">{{question.label | translate}} {{ 'dynamic_forms.is_required' | translate}}.</mat-error> -->
+  </mat-form-field>
+
+  <mat-form-field>
+    <input [(ngModel)]="configuration.refreshTime" name="refreshTime" matInput type="number" [placeholder]="'twitter.refresh_label' | translate"
+      required>
+  </mat-form-field>
+</form>

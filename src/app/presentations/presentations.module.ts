@@ -5,12 +5,12 @@ import { PresentationListComponent } from './presentation-list/presentation-list
 import { PresentationViewComponent } from './presentation-view/presentation-view.component';
 import { PresentationButtonsComponent } from './presentation-buttons/presentation-buttons.component';
 import { NewPresentationDialogComponent } from './new-presentation-dialog/new-presentation-dialog.component';
-import { ModulesModule } from '../modules/modules.module';
 import { CreateOrOpenTextComponent } from './create-or-open-text.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { TwitterModule } from '../twitter/twitter.module';
 
 @NgModule({
-  imports: [SharedModule, AppRoutingModule, ModulesModule],
+  imports: [SharedModule, AppRoutingModule, TwitterModule],
   declarations: [
     PresentationListComponent,
     NewPresentationDialogComponent,

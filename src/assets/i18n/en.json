@@ -1,5 +1,6 @@
 {
   "remove": "Remove",
+  "close": "Close",
   "toolbar": {
     "title": "HP Events",
     "close": "Close app"
@@ -16,10 +17,13 @@
   },
   "twitter": {
     "info_label": "Information",
-    "info_value":
-      "Find tweets containing the terms you want. You can use operators as described in <a href=\"https://twitter.com/search-home/\">the twitter search page</a>.<br><small>Examples: Group items double-quoting them (\"Game of Thrones\"). Use keyword OR to search for multiple terms (@BarackObama OR @realDonaldTrump).</small>",
-    "items_label": "Items",
-    "refresh_label": "Refresh time (seconds)"
+    "info_value": "You can make search querys the same way you do in <a href=\"https://twitter.com/search-home/\">Twitter</a>. By default you will search twits containing all the words in your query, but you can use <b>operators</b> in order to get more specific results.",
+    "items_label": "Search query",
+    "refresh_label": "Refresh time (seconds)",
+    "show_operators": "Show list of operators and examples",
+    "search_operators_dialog": {
+      "table": "<table class=\"modal-table modal-table-bordered\"><thead><tr><th>Operator</th><th>Finds tweets...</th></tr></thead><tbody><tr><td>twitter search</td><td>containing both \"twitter\" and \"search\". This is the default operator.</td></tr><tr><td><b>\"</b>happy hour<b>\"</b></td><td>containing the exact phrase \"happy hour\".</td></tr><tr><td>love <b>OR</b> hate</td><td>containing either \"love\" or \"hate\" (or both).</td></tr><tr><td>beer <b>-</b>root</td><td>containing \"beer\" but not \"root\".</td></tr><tr><td><b>#</b>haiku</td><td>containing the hashtag \"haiku\".</td></tr><tr><td><b>from:</b>alexiskold</td><td>sent from person \"alexiskold\".</td></tr><tr><td><b>to:</b>techcrunch</td><td>sent to person \"techcrunch\".</td></tr><tr><td><b>@</b>mashable</td><td>referencing person \"mashable\".</td></tr><tr><td>\"happy hour\" <b>near:</b>\"san francisco\"</td><td>containing the exact phrase \"happy hour\" and sent near \"san francisco\".</td></tr><tr><td><b>near:</b>NYC <b>within:</b>15mi</td><td>sent within 15 miles of \"NYC\".</td></tr><tr><td>superhero <b>since:</b>2010-12-27</td><td>containing \"superhero\" and sent since date \"2010-12-27\" (year-month-day).</td></tr><tr><td>ftw <b>until:</b>2010-12-27</td><td>containing \"ftw\" and sent up to date \"2010-12-27\".</td></tr><tr><td>hilarious <b>filter:links</b></td><td>containing \"hilarious\" and linking to URLs.</td></tr><tr><td>news <b>source:\"Twitter Lite\"</b></td><td>containing \"news\" and entered via Twitter Lite</td></tr></tbody></table>"
+    }
   },
   "presentation_list": {
     "no_presentations": "There are no presentations.",

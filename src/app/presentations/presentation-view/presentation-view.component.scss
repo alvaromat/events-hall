@@ -14,3 +14,22 @@ mat-grid-list {
   align-items: center;
   justify-content: center;
 }
+
+mat-card {
+  width: calc(100% - (#{$mat-card-padding} * 2) - #{$gutter});
+  height: calc(100% - (#{$mat-card-padding} * 2) - #{$gutter});
+  display: flex;
+  flex-flow: column;
+}
+
+mat-card-content {
+  overflow: auto;
+  padding-right: 5px;
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
