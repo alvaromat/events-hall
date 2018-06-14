@@ -42,12 +42,16 @@ export class TwitterViewComponent implements OnInit, OnDestroy {
   }
 
   setUpCyclicSearch() {
+    if (this.configuration.items === '' || this.configuration.items === undefined) {
+      return;
+    }
+
     const refreshInterval = (this.configuration.refreshTime ? this.configuration.refreshTime : 60) * 1000;
 
     this.cyclicSearch = timer(0, refreshInterval).subscribe(_ => {
       this.twitter.search(this.configuration.items, true, this.calculateBiggestId()).
         subscribe(result => {
-          this.newTwits = this.newTwits.concat(result['statuses']);
+          this.newTwits = this.newTwits.concat(result['statuses'] || []);
           this.displayTwit(undefined);
         });
     });

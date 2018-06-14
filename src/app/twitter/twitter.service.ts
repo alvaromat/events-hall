@@ -51,7 +51,7 @@ export class TwitterService {
       .set('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8.');
 
     return this.http
-      .post<Object>(
+      .post<string>(
         'https://api.twitter.com/oauth2/token',
         'grant_type=client_credentials',
         { headers }
@@ -71,10 +71,10 @@ export class TwitterService {
         if (since !== 0) { params = params.set('since_id', `${since}`); }
 
         return this.http
-          .get<Object>('https://api.twitter.com/1.1/search/tweets.json', { headers: authHeader, params })
+          .get<any[]>('https://api.twitter.com/1.1/search/tweets.json', { headers: authHeader, params })
           .pipe(
             tap(_ => console.log(`Twitter: fetched twits containing "${terms}".`)),
-            catchError(this.handleError('search', ''))
+            catchError(this.handleError('search', []))
           );
       })
     );
