@@ -1,12 +1,5 @@
 @import '~_variables.scss';
 
-mat-card {
-  width: calc(100% - (#{$mat-card-padding} * 2) - #{$gutter});
-  height: calc(100% - (#{$mat-card-padding} * 2) - #{$gutter});
-  display: flex;
-  flex-flow: column;
-}
-
 mat-list-item {
   height: auto !important;
   padding: $gutter 0px;
@@ -20,20 +13,26 @@ mat-list-item {
 mat-list {
   overflow: hidden;
   border-top: 0px;
+  height: 100%;
+  padding: 0;
 }
 
-.gradient_top {
-  position:absolute;
-  z-index:2;
-  right:0; top:0; left:0;
-  height: 50px;
-  background: linear-gradient(to top,  transparent,white 30%);
+.gradient-top {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  top: 0;
+  left: 0;
+  height: 40px;
+  background: linear-gradient(to top, transparent, white 30%);
 }
 
-.gradient_bottom {
-  position:absolute;
-  z-index:2;
-  right:0; bottom:0; left:0;
-  height: 50px;
-  background: linear-gradient(to bottom,  transparent,white 50%);
+.gradient-bottom {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, white 50%);
 }

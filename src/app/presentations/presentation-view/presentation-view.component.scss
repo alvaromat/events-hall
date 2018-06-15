@@ -16,13 +16,15 @@ mat-grid-list {
 }
 
 mat-card {
-  width: calc(100% - (#{$mat-card-padding} * 2) - #{$gutter});
-  height: calc(100% - (#{$mat-card-padding} * 2) - #{$gutter});
+  width: calc(100% - 32px - #{$gutter});
+  height: calc(100% - #{$gutter});
   display: flex;
   flex-flow: column;
+  padding: 0px 16px;
 }
 
 mat-card-content {
+  padding: 24px 0px;
   overflow: auto;
   padding-right: 5px;
   &::-webkit-scrollbar {
@@ -34,10 +36,35 @@ mat-card-content {
   }
 }
 
-.delete-button{
+.module {
+  padding: 24px 0px;
+}
+
+.delete-button {
   position: absolute;
   top: -5px;
   right: -5px;
   padding: 0px 6px;
   min-width: 0;
+  z-index: 3;
+}
+
+.gradient-top {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  top: 0;
+  left: 0;
+  height: 24px;
+  background: linear-gradient(to top, transparent, white 30%);
+}
+
+.gradient-bottom {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 24px;
+  background: linear-gradient(to bottom, transparent, white 50%);
 }

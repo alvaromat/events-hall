@@ -1,15 +1,15 @@
 <mat-grid-list *ngIf="presentation && presentation.modules.length > 0" [cols]="cols" rowHeight="fit">
   <mat-grid-tile *ngFor="let module of presentation.modules; let i = index" [rowspan]="rowspan(i)">
 
-    <!-- TODO: gambiar el ngIf al mat-card-content para simplificar los subcomponentes -->
+    <mat-card>
+      <!-- Delete module button -->
+      <button *ngIf="editing" (click)="remove(module)" matTooltip="{{'remove' | translate}}" mat-raised-button color="warn" class="delete-button mat-elevation-6">
+        <mat-icon>close</mat-icon>
+      </button>
 
-    <div class="fill_parent" *ngIf="!editing" [ngSwitch]="module.type">
-      <app-twitter-view class="fill_parent" [configuration]="module.configuration" *ngSwitchCase="'twitter'"></app-twitter-view>
-    </div>
-
-    <mat-card *ngIf="editing">
-      <button *ngIf="editing" (click)="remove(module)" matTooltip="{{'remove' | translate}}" mat-raised-button color="warn" class="delete-button mat-elevation-6"><mat-icon>close</mat-icon></button>
-      <mat-card-content>
+      <!-- If editing, show the form -->
+      <mat-card-content *ngIf="editing">
+        <div class="gradient-top"></div>
         <mat-form-field>
           <mat-select [placeholder]="'module_form.select_type' | translate" [(value)]="module.type">
             <mat-option value="twitter">{{'modules.twitter' | translate}}</mat-option>
@@ -22,8 +22,13 @@
         <div [ngSwitch]="module.type">
           <app-twitter-form class="fill_parent" (save)="save()" [configuration]="module.configuration" *ngSwitchCase="'twitter'"></app-twitter-form>
         </div>
+        <div class="gradient-bottom"></div>
       </mat-card-content>
 
+      <!-- If not editing, show the module display -->
+      <div class="fill_parent module" *ngIf="!editing" [ngSwitch]="module.type">
+        <app-twitter-view class="fill_parent" [configuration]="module.configuration" *ngSwitchCase="'twitter'"></app-twitter-view>
+      </div>
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>
