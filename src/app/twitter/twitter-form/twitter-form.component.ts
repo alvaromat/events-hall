@@ -4,7 +4,8 @@ import {
   Input,
   Output,
   EventEmitter,
-  ViewChild
+  ViewChild,
+  OnDestroy
 } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { SearchOperatorsTableComponent } from '../search-operators-table/search-operators-table.component';
@@ -16,7 +17,7 @@ import { debounceTime } from 'rxjs/operators';
   templateUrl: './twitter-form.component.html',
   styleUrls: ['./twitter-form.component.scss']
 })
-export class TwitterFormComponent implements OnInit {
+export class TwitterFormComponent implements OnInit, OnDestroy {
   @Input() configuration: any;
   @Output() save = new EventEmitter<null>();
 
@@ -35,6 +36,11 @@ export class TwitterFormComponent implements OnInit {
     this.form.valueChanges.pipe(
       debounceTime(2000)
     ).subscribe(_ => this.formChanged());
+  }
+
+  ngOnDestroy() {
+    // Save configuration if it is valid
+    this.formChanged();
   }
 
   showOperators() {

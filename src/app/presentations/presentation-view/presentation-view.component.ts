@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, OnDestroy } from '@angular/core';
 import { Presentation } from '../presentation';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap, tap } from 'rxjs/operators';
@@ -10,7 +10,7 @@ import { Module } from '../../modules/module';
   templateUrl: './presentation-view.component.html',
   styleUrls: ['./presentation-view.component.scss']
 })
-export class PresentationViewComponent implements OnInit {
+export class PresentationViewComponent implements OnInit, OnDestroy {
   presentation: Presentation;
   editing: boolean;
 
@@ -34,6 +34,10 @@ export class PresentationViewComponent implements OnInit {
       .subscribe(presentation => this.presentation = presentation);
   }
 
+  ngOnDestroy() {
+    this.save();
+  }
+
   rowspan(index: number): number {
     const modules = this.presentation.modules.length;
 
@@ -51,6 +55,7 @@ export class PresentationViewComponent implements OnInit {
 
   remove(moduleToRemove: Module) {
     this.presentation.modules = this.presentation.modules.filter((module: Module) => module !== moduleToRemove);
+    this.save();
   }
 
   save() {
