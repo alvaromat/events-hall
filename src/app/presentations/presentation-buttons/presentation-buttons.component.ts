@@ -3,7 +3,7 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
 import { PresentationService } from '../presentation.service';
 import { Presentation } from '../presentation';
-import { Module } from '../../modules/module';
+import { Module } from '../module';
 
 @Component({
   selector: 'app-presentation-buttons',

@@ -3,7 +3,7 @@ import { Presentation } from '../presentation';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap, tap } from 'rxjs/operators';
 import { PresentationService } from '../presentation.service';
-import { Module } from '../../modules/module';
+import { Module } from '../module';
 
 @Component({
   selector: 'app-presentation-view',

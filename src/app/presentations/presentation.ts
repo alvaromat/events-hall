@@ -1,4 +1,4 @@
-import { Module } from '../modules/module';
+import { Module } from './module';
 
 export class Presentation {
     id: number;
