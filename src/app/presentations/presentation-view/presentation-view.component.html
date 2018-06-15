@@ -8,7 +8,7 @@
     </div>
 
     <mat-card *ngIf="editing">
-
+      <button *ngIf="editing" (click)="remove(module)" matTooltip="{{'remove' | translate}}" mat-raised-button color="warn" class="delete-button mat-elevation-6"><mat-icon>close</mat-icon></button>
       <mat-card-content>
         <mat-form-field>
           <mat-select [placeholder]="'module_form.select_type' | translate" [(value)]="module.type">
@@ -20,7 +20,6 @@
         </mat-form-field>
 
         <div [ngSwitch]="module.type">
-          <!-- Poner aquí unfloating con el (remove)="remove($event)" -->
           <app-twitter-form class="fill_parent" (save)="save()" [configuration]="module.configuration" *ngSwitchCase="'twitter'"></app-twitter-form>
         </div>
       </mat-card-content>
