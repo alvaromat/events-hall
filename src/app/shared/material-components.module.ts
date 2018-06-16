@@ -13,7 +13,8 @@ import {
   MatSidenavModule,
   MatGridListModule,
   MatCardModule,
-  MatSelectModule
+  MatSelectModule,
+  MatRadioModule
 } from '@angular/material';
 import {
   MatMomentDateModule,
@@ -34,7 +35,8 @@ import {
     MatSidenavModule,
     MatGridListModule,
     MatCardModule,
-    MatSelectModule
+    MatSelectModule,
+    MatRadioModule
   ],
   exports: [
     MatToolbarModule,
@@ -49,7 +51,8 @@ import {
     MatSidenavModule,
     MatGridListModule,
     MatCardModule,
-    MatSelectModule
+    MatSelectModule,
+    MatRadioModule
   ],
   declarations: []
 })

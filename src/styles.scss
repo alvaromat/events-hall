@@ -34,6 +34,13 @@ mat-form-field, form {
   }
 }
 
+p.mini-title {
+  color: mat-color($app-grey);
+  transform: scale(0.75);
+  transform-origin: 0;
+  margin: 0px;
+}
+
 .filling-error {
   width: 100%;
   height: 100%;

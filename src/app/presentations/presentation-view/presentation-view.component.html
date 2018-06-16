@@ -20,7 +20,8 @@
         </mat-form-field>
 
         <div [ngSwitch]="module.type">
-          <app-twitter-form class="fill_parent" (save)="save()" [configuration]="module.configuration" *ngSwitchCase="'twitter'"></app-twitter-form>
+          <app-twitter-form  (save)="save()" [configuration]="module.configuration" *ngSwitchCase="'twitter'"></app-twitter-form>
+          <app-video-form  (save)="save()" [configuration]="module.configuration" *ngSwitchCase="'player'"></app-video-form>
         </div>
         <div class="gradient-bottom"></div>
       </mat-card-content>
@@ -28,7 +29,7 @@
       <!-- If not editing, show the module display -->
       <div class="fill_parent module" *ngIf="!editing" [ngSwitch]="module.type">
         <app-twitter-view class="fill_parent" [configuration]="module.configuration" *ngSwitchCase="'twitter'"></app-twitter-view>
-        <app-video-player *ngSwitchCase="'player'"></app-video-player>
+        <app-video-player [configuration]="module.configuration" *ngSwitchCase="'player'"></app-video-player>
       </div>
     </mat-card>
   </mat-grid-tile>

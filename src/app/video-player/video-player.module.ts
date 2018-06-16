@@ -5,6 +5,7 @@ import {VgOverlayPlayModule} from 'videogular2/overlay-play';
 import {VgBufferingModule} from 'videogular2/buffering';
 import { VideoPlayerComponent } from './video-player/video-player.component';
 import { SharedModule } from '../shared/shared.module';
+import { VideoFormComponent } from './video-form/video-form.component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,7 @@ import { SharedModule } from '../shared/shared.module';
     VgOverlayPlayModule,
     VgBufferingModule
   ],
-  declarations: [VideoPlayerComponent],
-  exports: [VideoPlayerComponent]
+  declarations: [VideoPlayerComponent, VideoFormComponent],
+  exports: [VideoPlayerComponent, VideoFormComponent]
 })
 export class VideoPlayerModule { }

@@ -27,7 +27,16 @@
     }
   },
   "video_player": {
-    "no_video": "No videos to play"
+    "no_video": "No videos to play",
+    "add_title": "Add a new video",
+    "video_from": "Video from",
+    "local": "My Computer",
+    "web": "The Web",
+    "source_web": "URL of the video",
+    "select_file": "Choose",
+    "selected": "Selected file",
+    "add": "Add video",
+    "video_list": "Playlist"
   },
   "presentation_list": {
     "no_presentations": "There are no presentations.",
