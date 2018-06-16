@@ -13,7 +13,7 @@
         <mat-form-field>
           <mat-select [placeholder]="'module_form.select_type' | translate" [(value)]="module.type">
             <mat-option value="twitter">{{'modules.twitter' | translate}}</mat-option>
-            <mat-option disabled value="player">{{'modules.player' | translate}}</mat-option>
+            <mat-option value="player">{{'modules.player' | translate}}</mat-option>
             <mat-option disabled value="weather">{{'modules.weather' | translate}}</mat-option>
             <mat-option disabled value="traffic">{{'modules.traffic' | translate}}</mat-option>
           </mat-select>
@@ -28,6 +28,7 @@
       <!-- If not editing, show the module display -->
       <div class="fill_parent module" *ngIf="!editing" [ngSwitch]="module.type">
         <app-twitter-view class="fill_parent" [configuration]="module.configuration" *ngSwitchCase="'twitter'"></app-twitter-view>
+        <app-video-player *ngSwitchCase="'player'"></app-video-player>
       </div>
     </mat-card>
   </mat-grid-tile>

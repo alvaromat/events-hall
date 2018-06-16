@@ -8,9 +8,10 @@ import { NewPresentationDialogComponent } from './new-presentation-dialog/new-pr
 import { CreateOrOpenTextComponent } from './create-or-open-text.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { TwitterModule } from '../twitter/twitter.module';
+import { VideoPlayerModule } from '../video-player/video-player.module';
 
 @NgModule({
-  imports: [SharedModule, AppRoutingModule, TwitterModule],
+  imports: [SharedModule, AppRoutingModule, TwitterModule, VideoPlayerModule],
   declarations: [
     PresentationListComponent,
     NewPresentationDialogComponent,
@@ -24,6 +25,6 @@ import { TwitterModule } from '../twitter/twitter.module';
     PresentationButtonsComponent
   ],
   entryComponents: [NewPresentationDialogComponent],
-  providers: [PresentationService] // TODO: Provide PresentationService in root moodule via @Provider.providedIn decorator
+  providers: [PresentationService]
 })
 export class PresentationsModule {}
