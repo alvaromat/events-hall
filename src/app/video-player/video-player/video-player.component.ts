@@ -27,7 +27,7 @@ export class VideoPlayerComponent implements OnInit, OnDestroy {
 
   end$: ISubscription;
 
-  private anyVideo = false;
+  anyVideo = false;
 
   constructor() {}
 
