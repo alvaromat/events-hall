@@ -10,7 +10,7 @@ import { Module } from '../module';
   templateUrl: './presentation-view.component.html',
   styleUrls: ['./presentation-view.component.scss']
 })
-export class PresentationViewComponent implements OnInit, OnDestroy {
+export class PresentationViewComponent implements OnInit {
   presentation: Presentation;
   editing: boolean;
 
@@ -32,10 +32,6 @@ export class PresentationViewComponent implements OnInit, OnDestroy {
         switchMap(params => this.presentationService.get(+params.get('id')))
       )
       .subscribe(presentation => this.presentation = presentation);
-  }
-
-  ngOnDestroy() {
-    this.save();
   }
 
   rowspan(index: number): number {

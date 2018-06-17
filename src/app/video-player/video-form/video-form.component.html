@@ -1,0 +1,53 @@
+<form (ngSubmit)="addVideo()">
+
+  <div class="app-info">
+    <p>{{'video_player.info_label' | translate}}</p>
+    <p [innerHTML]="'video_player.info_value' | translate"></p>
+  </div>
+
+  <p class="mini-title">{{ 'video_player.add_title' | translate }}</p>
+
+  <div class="video-type">
+    <mat-radio-group class="radio-group" [(ngModel)]="newVideoType" name="videoType">
+      <span>{{ 'video_player.video_from' | translate }} </span>
+      <mat-radio-button class="radio-button" value="local">
+        {{ 'video_player.local' | translate }}
+      </mat-radio-button>
+      <mat-radio-button class="radio-button" value="web">
+        {{ 'video_player.web' | translate }}
+      </mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+
+  <div *ngIf="newVideoType === 'local'">
+    <label>
+      <input type="file" accept="video/mp4, video/ogg, video/webm" (change)="fileChanged($event)"> {{ 'video_player.selected' | translate }}:
+      <span class="selected-file">{{localVideoName}}</span>
+      <a mat-icon-button color="accent" class="choose-btn ">
+        <mat-icon>folder</mat-icon>
+      </a>
+    </label>
+  </div>
+
+  <mat-form-field *ngIf="newVideoType === 'web'">
+    <input matInput [placeholder]="'video_player.source_web' | translate" type="url" [(ngModel)]="webVideoURL" name="vidURL">
+  </mat-form-field>
+
+  <button mat-button class="add-btn" color="primary" [disabled]="!validVideo()">{{ 'video_player.add' | translate }}</button>
+</form>
+
+<div *ngIf="this.configuration?.videoList?.length > 0">
+  <p class="mini-title">{{ 'video_player.video_list' | translate }}</p>
+  <mat-list dense>
+    <mat-list-item *ngFor="let video of configuration.videoList">
+      <p matLine matTooltip="{{video.source}}">{{video.source}}</p>
+      <button mat-icon-button (click)="toggleMute(video)">
+        <mat-icon>{{video.muted ? 'volume_off' : 'volume_up'}}</mat-icon>
+      </button>
+      <button mat-icon-button (click)="delete(video)">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-list>
+</div>

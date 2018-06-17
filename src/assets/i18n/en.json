@@ -27,6 +27,8 @@
     }
   },
   "video_player": {
+    "info_label": "Information",
+    "info_value": "Play local or online videos. Supported formats are <b>mp4</b>, <b>ogg</b> and <b>webm</b>.",
     "no_video": "No videos to play",
     "add_title": "Add a new video",
     "video_from": "Video from",

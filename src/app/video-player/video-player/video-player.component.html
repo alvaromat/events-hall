@@ -1,9 +1,9 @@
-<vg-player *ngIf="playingVideo" (onPlayerReady)="onPlayerReady($event)">
-  <video [vgMedia]="media" #media preload="auto" [src]="playingVideo.source" [muted]="playingVideo.muted" crossorigin>
+<vg-player *ngIf="anyVideo" (onPlayerReady)="onPlayerReady($event)">
+  <video [vgMedia]="media" #media preload="auto" [src]="playingVideo.source" [muted]="playingVideo.muted" [loop]="videoList.length === 0" crossorigin>
   </video>
 </vg-player>
 
-<div *ngIf="!playingVideo" class="filling-error">
+<div *ngIf="!anyVideo" class="filling-error">
   <div><mat-icon>error_outline</mat-icon></div>
   <div><p>{{'video_player.no_video' | translate}}</p></div>
 </div>
