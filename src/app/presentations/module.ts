@@ -5,6 +5,7 @@ export class Module {
 
   constructor(type?: string) {
     this.type = type || undefined;
+    this.configuration = new Object();
   }
 
   static fromJsonObject(o): Module {

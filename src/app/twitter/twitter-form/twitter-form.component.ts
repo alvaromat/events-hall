@@ -33,6 +33,9 @@ export class TwitterFormComponent implements OnInit, OnDestroy {
   constructor(private dialog: MatDialog) {}
 
   ngOnInit() {
+    if (!this.configuration.refreshTime) {
+      this.configuration.refreshTime = 60;
+    }
     this.form.valueChanges.pipe(
       debounceTime(2000)
     ).subscribe(_ => this.formChanged());
