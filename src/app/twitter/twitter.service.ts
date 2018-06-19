@@ -65,7 +65,7 @@ export class TwitterService {
   search(terms: string, extended = false, since: number | string = 0) {
     return this.getAuthHeader().pipe(
       switchMap(authHeader => {
-        let params = new HttpParams().set('q', encodeURIComponent(terms));
+        let params = new HttpParams().set('q', encodeURI(terms));
 
         if (extended) { params = params.set('tweet_mode', 'extended'); }
         if (since !== 0) { params = params.set('since_id', `${since}`); }
