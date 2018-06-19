@@ -3,7 +3,7 @@
     <mat-icon>menu</mat-icon>
   </button>
   <span class="title">{{ title }}</span>
-  <button mat-icon-button (click)="editPresentation()">
+  <button mat-icon-button (click)="editPresentation()" *ngIf="shouldDisplayEditButton">
     <mat-icon>edit</mat-icon>
   </button>
 

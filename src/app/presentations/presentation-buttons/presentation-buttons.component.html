@@ -2,6 +2,6 @@
   <mat-icon>add</mat-icon>
 </button>
 
-<button *ngIf="show" mat-icon-button (click)="toggleEdit()">
+<button *ngIf="show" mat-icon-button (click)="toggleEdit()" [disabled]="editing && !presentation.canDisplay()">
   <mat-icon>{{editing ? "slideshow" : "settings"}}</mat-icon>
 </button>

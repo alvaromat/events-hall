@@ -59,7 +59,9 @@ export class PresentationService {
       this.save();
       return of(newPresentation);
     } else {
-      return Observable.throw(new Error('Id not found'));
+      const error = new Error('Id not found');
+      console.error(error);
+      return Observable.throw(error);
     }
   }
 

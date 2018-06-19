@@ -1,6 +1,5 @@
 export class Module {
-  private type: string;
-
+  type: string;
   configuration: Object;
 
   constructor(type?: string) {
