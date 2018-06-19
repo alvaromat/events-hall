@@ -22,7 +22,8 @@ import { VideoPlayerModule } from '../video-player/video-player.module';
   exports: [
     PresentationListComponent,
     PresentationViewComponent,
-    PresentationButtonsComponent
+    PresentationButtonsComponent,
+    NewPresentationDialogComponent
   ],
   entryComponents: [NewPresentationDialogComponent],
   providers: [PresentationService]

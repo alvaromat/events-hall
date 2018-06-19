@@ -34,7 +34,7 @@ export class PresentationListComponent implements OnInit {
       if (resultPresentation) {
         this.presentationService
           .add(resultPresentation)
-          .subscribe(presentation => this.presentations.unshift(presentation));
+          .subscribe();
       }
     });
   }

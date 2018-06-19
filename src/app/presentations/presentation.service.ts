@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Presentation } from './presentation';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
+import 'rxjs/add/observable/throw';
 
 const PRESENTATIONS = 'presentations';
 
@@ -16,11 +17,7 @@ export class PresentationService {
       this.presentations = this.loadPresentations();
     }
 
-    const presentations = this.presentations.map(presentation =>
-      Object.assign({}, presentation)
-    );
-
-    return of(presentations);
+    return of(this.presentations);
   }
 
   /**

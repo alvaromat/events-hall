@@ -3,11 +3,13 @@ import { ElectronService } from './providers/electron.service';
 import { TranslateService } from '@ngx-translate/core';
 import { environment } from '../environments/environment';
 import { BrowserWindow } from 'electron';
-import { MatSidenav } from '@angular/material';
+import { MatSidenav, MatDialog } from '@angular/material';
 import { SidenavService } from './providers/sidenav.service';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
 import { PresentationService } from './presentations/presentation.service';
+import { NewPresentationDialogComponent } from './presentations/new-presentation-dialog/new-presentation-dialog.component';
+import { Presentation } from './presentations/presentation';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +20,8 @@ export class AppComponent implements OnInit {
   window: BrowserWindow;
   @ViewChild('sidenav') sidenav: MatSidenav;
   title: string;
+  shouldDisplayEditButton = false;
+  presentation: Presentation;
 
   get maximized(): boolean {
     return this.window.isMaximized();
@@ -29,7 +33,8 @@ export class AppComponent implements OnInit {
     private sidenavService: SidenavService,
     private router: Router,
     private route: ActivatedRoute,
-    private presentationService: PresentationService
+    private presentationService: PresentationService,
+    private dialog: MatDialog
   ) {
     translate.setDefaultLang('en');
     console.log('environment', environment);
@@ -67,11 +72,27 @@ export class AppComponent implements OnInit {
         if (routeSnapshot.url[0] && routeSnapshot.url[0].path === 'presentation') {
           this.presentationService
             .get(+routeSnapshot.paramMap.get('id'))
-            .subscribe(presentation => this.title = presentation.name);
+            .subscribe(presentation => {
+              this.title = presentation.name;
+              this.presentation = presentation;
+            });
+          this.shouldDisplayEditButton = Boolean(routeSnapshot.url.find(segment => segment.path === 'editing'));
         } else {
             this.translate.get('toolbar.title').subscribe((res: string) => this.title = res);
         }
       });
+  }
+
+  editPresentation() {
+    const dialogRef = this.dialog.open(NewPresentationDialogComponent, {
+      data: this.presentation
+    });
+
+    dialogRef.afterClosed().subscribe(resultPresentation => {
+      if (resultPresentation) {
+        this.presentationService.update(this.presentation).subscribe(p => this.title = p.name);
+      }
+    });
   }
 
   quit(): void {
