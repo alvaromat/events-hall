@@ -47,8 +47,11 @@ export class PresentationService {
   }
 
   delete(presentation: Presentation): Observable<Presentation> {
-    this.presentations = this.presentations.filter(p => p.id !== presentation.id);
-    this.save();
+    const deleteIndex = this.presentations.findIndex(p => p.id === presentation.id);
+    if (deleteIndex !== -1) {
+      this.presentations.splice(deleteIndex, 1);
+      this.save();
+    }
     return of(presentation);
   }
 

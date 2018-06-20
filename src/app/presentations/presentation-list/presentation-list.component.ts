@@ -40,7 +40,6 @@ export class PresentationListComponent implements OnInit {
   }
 
   delete(presentation: Presentation) {
-    this.presentations = this.presentations.filter(p => p !== presentation);
     this.presentationService.delete(presentation).subscribe();
   }
 
