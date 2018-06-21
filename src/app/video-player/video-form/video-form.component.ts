@@ -1,5 +1,4 @@
-import { Component, OnInit, Input, Output, ViewChild, EventEmitter, OnDestroy } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { VideoSettings } from '../video-settings';
 
 @Component({
@@ -11,7 +10,6 @@ export class VideoFormComponent implements OnInit, OnDestroy {
 
   @Input() configuration: any;
   @Output() save = new EventEmitter<null>();
-  @ViewChild('form') form: NgForm;
 
   newVideoType = 'local';
 

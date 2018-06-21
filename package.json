@@ -1,6 +1,6 @@
 {
   "name": "events-hall",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "App to display information of different kinds in events or meetings",
   "homepage": "https://github.com/alvaromat/events-hall",
   "author": {
@@ -64,6 +64,7 @@
     "codelyzer": "4.2.1",
     "core-js": "2.5.5",
     "cross-env": "5.1.4",
+    "css-element-queries": "^1.0.2",
     "dotenv": "5.0.1",
     "electron": "2.0.2",
     "electron-builder": "20.15.1",

@@ -40,6 +40,14 @@
     "add": "Add video",
     "video_list": "Playlist"
   },
+  "weather": {
+    "info_label": "Information",
+    "info_value": "Search for your city and select it from the list. There may be several occurrences because weather information is obtained from different sources. The gray number indentifies the source, so if you can choose a different one if you suspect that the displayed information is wrong .",
+    "no_data": "Could not fetch weather data for selected location.",
+    "city": "City",
+    "selected": "Selected city",
+    "no_selected": "No city selected. Search for one and select it from the list."
+  },
   "presentation_list": {
     "no_presentations": "There are no presentations.",
     "create": "Create one"

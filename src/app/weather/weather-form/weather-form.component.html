@@ -1,0 +1,25 @@
+<div class="app-info">
+    <p>{{'weather.info_label' | translate}}</p>
+    <p>{{'weather.info_value' | translate}}</p>
+  </div>
+
+<mat-form-field>
+  <input #cityInput type="text" [placeholder]="'weather.city' | translate" matInput [matAutocomplete]="auto">
+  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayCity" (optionSelected)="selectCity($event)" autoActiveFirstOption="true">
+    <mat-option *ngFor="let city of filteredCities | async" [value]='city'>
+      <span class="flag-icon flag-icon-{{ city.country | lowercase }}"></span>
+      <span> {{ city.name }} </span>
+      <small class="city-id"> {{city.id}}</small>
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>
+
+<div class="app-info">
+  <p>{{'weather.selected' | translate}}</p>
+  <p *ngIf="selectedCity">
+    <span class="flag-icon flag-icon-{{ selectedCity.country | lowercase }}"></span>
+    <span> {{ selectedCity.name }} </span>
+    <small class="city-id"> {{selectedCity.id}}</small>
+  </p>
+  <p *ngIf="!selectedCity">{{'weather.no_selected' | translate}}</p>
+</div>

@@ -1,0 +1,129 @@
+:host {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+  &[max-height~='300px'] {
+    font-size: 75% !important;
+    .icon {
+      i {
+        font-size: 3em !important;
+      }
+      p {
+        font-size: 1em !important;
+      }
+    }
+  }
+
+  &[min-height~='300px'][max-height~='400px'] {
+    font-size: 100% !important;
+    .icon {
+      i {
+        font-size: 5em !important;
+      }
+      p {
+        font-size: 1.5em !important;
+      }
+    }
+  }
+
+  &[min-height~='400px'][max-height~='600px'] {
+    .icon {
+      i {
+        font-size: 7em !important;
+      }
+      p {
+        font-size: 2em !important;
+      }
+    }
+  }
+
+  &[min-width~='500px'] {
+    font-size: 125%;
+  }
+
+  &[min-width~='700px'][min-height~='600px'] {
+    font-size: 175%;
+    .icon {
+      i {
+        font-size: 7em !important;
+      }
+      p {
+        font-size: 2em !important;
+      }
+    }
+  }
+
+  &[min-width~='900px'][min-height~='600px'] {
+    font-size: 200%;
+
+  }
+}
+
+div.current-weather {
+  flex-direction: column;
+  display: flex;
+  flex-grow: 1;
+
+  div.icon {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    i {
+      font-size: 10em;
+    }
+    p {
+      font-size: 3em;
+      margin: 0;
+    }
+  }
+
+  div.info {
+    font-size: 1.5em;
+    margin-top: auto;
+    padding: 0 0.5em;
+    padding-bottom: 0.5em;
+    p {
+      margin: 0;
+      display: flex;
+      justify-content: space-between;
+      .temp {
+        padding-right: 1em;
+      }
+    }
+  }
+}
+
+div.forecast {
+  display: flex;
+  flex-grow: 1;
+  padding: 0.5em 0;
+  //font-size: 3vmin;
+
+  div.forecast-list {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .forecast-item {
+      display: flex;
+      justify-content: space-between;
+      margin: 0;
+      align-items: center;
+      padding: 0 1em;
+
+      .hour {
+        color: #888;
+      }
+      .weather {
+        padding: 0 1em;
+      }
+    }
+  }
+}

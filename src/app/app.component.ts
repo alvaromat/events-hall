@@ -6,7 +6,7 @@ import { BrowserWindow } from 'electron';
 import { MatSidenav, MatDialog } from '@angular/material';
 import { SidenavService } from './providers/sidenav.service';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
-import { filter, map } from 'rxjs/operators';
+import { filter, map, retry } from 'rxjs/operators';
 import { PresentationService } from './presentations/presentation.service';
 import { NewPresentationDialogComponent } from './presentations/new-presentation-dialog/new-presentation-dialog.component';
 import { Presentation } from './presentations/presentation';
@@ -47,9 +47,11 @@ export class AppComponent implements OnInit {
     }
     this.sidenavService.Sidenav = this.sidenav;
 
-    this.translate.get('toolbar.title').subscribe((res: string) => this.title = res);
+    this.translate.get('toolbar.title').pipe(retry(3)).subscribe((res: string) => this.title = res);
 
     this.suscribeToRouteChanges();
+    // TODO: use configuration service to get lang
+    this.translate.use(this.electronService.remote.app.getLocale());
   }
 
   toggleMaximize() {

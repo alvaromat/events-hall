@@ -9,9 +9,10 @@ import { CreateOrOpenTextComponent } from './create-or-open-text.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { TwitterModule } from '../twitter/twitter.module';
 import { VideoPlayerModule } from '../video-player/video-player.module';
+import { WeatherModule } from '../weather/weather.module';
 
 @NgModule({
-  imports: [SharedModule, AppRoutingModule, TwitterModule, VideoPlayerModule],
+  imports: [SharedModule, AppRoutingModule, TwitterModule, VideoPlayerModule, WeatherModule],
   declarations: [
     PresentationListComponent,
     NewPresentationDialogComponent,

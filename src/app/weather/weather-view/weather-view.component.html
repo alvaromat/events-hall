@@ -1,0 +1,27 @@
+<div class="current-weather" *ngIf="currentWeather">
+  <div class="icon">
+    <i class="owi owi-{{currentWeather?.weather[0]?.icon}}"></i>
+    <p>{{currentWeather?.weather[0]?.description | uppercase}}</p>
+  </div>
+  <div class="info">
+    <p>
+      <span class="temp"><i class="wi wi-thermometer"></i> {{currentWeather?.main?.temp}} ºC</span>
+      <span><i class="wi wi-strong-wind"></i> {{currentWeather?.wind?.speed * 3.6 | number: '0.0-2'}} km/h</span>
+    </p>
+  </div>
+</div>
+
+<div class="forecast" *ngIf="forecasts?.length > 0">
+  <div class="forecast-list">
+    <p class="forecast-item" *ngFor="let forecast of forecasts.slice(0,8)">
+      <span class="hour">{{forecast.dt_txt | date: 'HH:mm'}}</span>
+      <span class="weather"><i class="owi owi-{{forecast.weather[0]?.icon}}"></i></span>
+      <span><i class="wi wi-thermometer"></i> {{forecast.main?.temp | number: '0.0-0'}} ºC</span>
+    </p>
+  </div>
+</div>
+
+<div *ngIf="!configuration || (!forecasts && !currentWeather)" class="filling-error">
+    <div><mat-icon>error_outline</mat-icon></div>
+    <div><p>{{'weather.no_data' | translate}}</p></div>
+  </div>
