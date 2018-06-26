@@ -1,5 +1,5 @@
 <div class="gradient-top"></div>
-<mat-list>
+<mat-list *ngIf="twits?.length > 0">
   <mat-list-item *ngFor="let twit of twits.slice(0, 15)" [@add]="'in'" (@add.done)="displayTwit($event)">
     <h3 matLine>{{twit.user.name}}
       <small>(@{{twit.user.screen_name}})</small>
@@ -8,4 +8,8 @@
     <p class="twitbody" matLine>{{twit.full_text}}</p>
   </mat-list-item>
 </mat-list>
+<div *ngIf="!configuration || !(twits?.length > 0)" class="filling-error">
+  <div><mat-icon>error_outline</mat-icon></div>
+  <div><p>{{'twitter.no_twits' | translate}}</p></div>
+</div>
 <div class="gradient-bottom"></div>
