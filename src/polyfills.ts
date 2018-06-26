@@ -77,3 +77,5 @@ import 'zone.js/dist/zone-mix';  // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+
+import 'hammerjs';

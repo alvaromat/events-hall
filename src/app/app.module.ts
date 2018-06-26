@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import '../polyfills';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -16,7 +16,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ElectronService } from './providers/electron.service';
 
 import { AppComponent } from './app.component';
-import { MAT_DATE_LOCALE } from '@angular/material';
+import { MAT_DATE_LOCALE, GestureConfig } from '@angular/material';
 import { SidenavService } from './providers/sidenav.service';
 import { SharedModule } from './shared/shared.module';
 import { PresentationsModule } from './presentations/presentations.module';
@@ -45,7 +45,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'en_GB' },
     ElectronService,
-    SidenavService
+    SidenavService,
+    { provide: HAMMER_GESTURE_CONFIG, useClass: GestureConfig },
   ],
   bootstrap: [AppComponent]
 })

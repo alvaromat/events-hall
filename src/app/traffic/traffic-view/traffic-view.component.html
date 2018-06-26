@@ -1,0 +1,8 @@
+<agm-map *ngIf="configuration?.latitude" (mapReady)="onMapReady($event)" [latitude]="configuration?.latitude" [longitude]="configuration?.longitude" [scrollwheel]="false" [zoom]="configuration?.zoom" [zoomControl]="false" [streetViewControl]="false">
+  <agm-marker *ngIf="configuration?.showMarker" [latitude]="configuration?.latitude" [longitude]="configuration?.longitude"></agm-marker>
+</agm-map>
+
+<div *ngIf="!configuration || !(configuration?.latitude)" class="filling-error">
+  <div><mat-icon>error_outline</mat-icon></div>
+  <div><p>{{'traffic.no_data' | translate}}</p></div>
+</div>

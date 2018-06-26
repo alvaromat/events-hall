@@ -15,7 +15,9 @@ import {
   MatCardModule,
   MatSelectModule,
   MatRadioModule,
-  MatAutocompleteModule
+  MatAutocompleteModule,
+  MatSliderModule,
+  MatCheckboxModule
 } from '@angular/material';
 import {
   MatMomentDateModule,
@@ -38,7 +40,9 @@ import {
     MatCardModule,
     MatSelectModule,
     MatRadioModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatSliderModule,
+    MatCheckboxModule
   ],
   exports: [
     MatToolbarModule,
@@ -55,7 +59,9 @@ import {
     MatCardModule,
     MatSelectModule,
     MatRadioModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatSliderModule,
+    MatCheckboxModule
   ],
   declarations: []
 })

@@ -1,0 +1,20 @@
+<div class="app-info">
+  <p>{{'traffic.info_label' | translate}}</p>
+  <p [innerHTML]="'traffic.info_value' | translate"></p>
+</div>
+
+<form (change)="save.emit()">
+  <mat-form-field>
+    <input matInput [placeholder]="'traffic.location_input' | translate" #searchInput spellcheck="off" type="text"/>
+  </mat-form-field>
+  <mat-checkbox (change)="save.emit()" [(ngModel)]="configuration.showMarker" name="marker">{{ 'traffic.marker' | translate }}</mat-checkbox>
+  <button type="button" mat-button (click)="useMyLocation()" class="use-current">{{ 'traffic.use_current' | translate }}</button>
+
+  <p class="mini-title">{{ 'traffic.zoom' | translate }}</p>
+  <mat-slider min="10" max="20" step="0.1" [(ngModel)]="configuration.zoom" name="zoom" (change)="save.emit()"></mat-slider>
+
+  <p class="mini-title">{{ 'traffic.preview' | translate }}</p>
+  <agm-map [latitude]="configuration.latitude" [longitude]="configuration.longitude" [scrollwheel]="false" [zoom]="configuration.zoom">
+    <agm-marker *ngIf="configuration.showMarker" [latitude]="configuration.latitude" [longitude]="configuration.longitude"></agm-marker>
+  </agm-map>
+</form>

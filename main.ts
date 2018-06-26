@@ -6,6 +6,9 @@ let win, serve;
 const args = process.argv.slice(1);
 serve = args.some(val => val === '--serve');
 
+// Set up Google API key for geolocation
+process.env.GOOGLE_API_KEY = 'AIzaSyDhbLJjAtXRgED7JCjwD4nO-RTER-f-JN0';
+
 try {
   require('dotenv').config();
 } catch {

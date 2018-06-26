@@ -43,11 +43,21 @@
   },
   "weather": {
     "info_label": "Information",
-    "info_value": "Search for your city and select it from the list. There may be several occurrences because weather information is obtained from different sources. The gray number indentifies the source, so if you can choose a different one if you suspect that the displayed information is wrong .",
+    "info_value": "Search for your city and select it from the list. There may be several occurrences because weather information is obtained from different sources. The gray number indentifies the source, so if you can choose a different one if you suspect that the displayed information is wrong.",
     "no_data": "Could not fetch weather data for selected location.",
     "city": "City",
     "selected": "Selected city",
     "no_selected": "No city selected. Search for one and select it from the list."
+  },
+  "traffic": {
+    "info_label": "Information",
+    "info_value": "The traffic in the streets will be represented by their color. Red color means lots of traffic, being green color the opposite.",
+    "location_input": "Search location",
+    "preview": "Preview",
+    "zoom": "Zoom",
+    "marker": "Show marker",
+    "use_current": "Use current location",
+    "no_data": "Configuration not valid"
   },
   "presentation_list": {
     "no_presentations": "There are no presentations.",

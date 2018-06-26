@@ -10,9 +10,10 @@ import { AppRoutingModule } from '../app-routing.module';
 import { TwitterModule } from '../twitter/twitter.module';
 import { VideoPlayerModule } from '../video-player/video-player.module';
 import { WeatherModule } from '../weather/weather.module';
+import { TrafficModule } from '../traffic/traffic.module';
 
 @NgModule({
-  imports: [SharedModule, AppRoutingModule, TwitterModule, VideoPlayerModule, WeatherModule],
+  imports: [SharedModule, AppRoutingModule, TwitterModule, VideoPlayerModule, WeatherModule, TrafficModule],
   declarations: [
     PresentationListComponent,
     NewPresentationDialogComponent,

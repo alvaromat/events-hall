@@ -15,7 +15,7 @@
             <mat-option value="twitter">{{'modules.twitter' | translate}}</mat-option>
             <mat-option value="player">{{'modules.player' | translate}}</mat-option>
             <mat-option value="weather">{{'modules.weather' | translate}}</mat-option>
-            <mat-option disabled value="traffic">{{'modules.traffic' | translate}}</mat-option>
+            <mat-option value="traffic">{{'modules.traffic' | translate}}</mat-option>
           </mat-select>
         </mat-form-field>
 
@@ -23,6 +23,7 @@
           <app-twitter-form (save)="save()" [configuration]="module.configuration" *ngSwitchCase="'twitter'"></app-twitter-form>
           <app-video-form (save)="save()" [configuration]="module.configuration" *ngSwitchCase="'player'"></app-video-form>
           <app-weather-form (save)="save()" [configuration]="module.configuration" *ngSwitchCase="'weather'"></app-weather-form>
+          <app-traffic-form (save)="save()" [configuration]="module.configuration" *ngSwitchCase="'traffic'"></app-traffic-form>
 
           <div *ngIf="module.type === undefined" class="filling-error">
               <div><mat-icon>error_outline</mat-icon></div>
@@ -37,6 +38,7 @@
         <app-twitter-view class="fill_parent" [configuration]="module.configuration" *ngSwitchCase="'twitter'"></app-twitter-view>
         <app-video-player [configuration]="module.configuration" *ngSwitchCase="'player'"></app-video-player>
         <app-weather-view [configuration]="module.configuration" *ngSwitchCase="'weather'"></app-weather-view>
+        <app-traffic-view [configuration]="module.configuration" *ngSwitchCase="'traffic'"></app-traffic-view>
       </div>
     </mat-card>
   </mat-grid-tile>
