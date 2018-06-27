@@ -3,13 +3,13 @@
   <mat-dialog-content>
     <div>
       <mat-form-field>
-        <input matInput name="name" placeholder="Name" [(ngModel)]="presentation.name" required>
+        <input matInput name="name" [placeholder]="'presentation_list.name'| translate" [(ngModel)]="presentation.name" required>
       </mat-form-field>
     </div>
     <div>
       <mat-form-field>
         <!-- Buscar un calendario que entre bien. mirar en material.io -->
-        <input matInput name="date" [matDatepicker]="picker" placeholder="Date" [(ngModel)]="presentation.date" required>
+        <input matInput name="date" [matDatepicker]="picker" [placeholder]="'presentation_list.date'| translate" [(ngModel)]="presentation.date" required>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker touchUi="true"></mat-datepicker>
       </mat-form-field>

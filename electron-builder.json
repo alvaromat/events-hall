@@ -13,13 +13,17 @@
   "mac": {
     "icon": "dist",
     "target": [
-      "dmg"
+      "dmg",
+      "pkg"
     ]
   },
   "linux": {
     "icon": "dist",
     "target": [
-      "AppImage"
+      "AppImage",
+      "snap",
+      "deb",
+      "rpm"
     ]
   }
 }

@@ -80,7 +80,9 @@
     "create": "Crea una",
     "no_modules": "Sin módulos",
     "one_module": "Un módulo",
-    "several_modules": "módulos"
+    "several_modules": "módulos",
+    "date": "Fecha",
+    "name": "Nombre"
   },
   "forms": {
     "is_required": "es obligatorio"

@@ -80,7 +80,9 @@
     "create": "Create one",
     "no_modules": "No modules",
     "one_module": "One module",
-    "several_modules": "modules"
+    "several_modules": "modules",
+    "date": "Date",
+    "name": "Name"
   },
   "forms": {
     "is_required": "is required"
