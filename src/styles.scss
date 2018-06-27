@@ -48,6 +48,9 @@ p.mini-title {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  div {
+    padding: 0px 24px;
+  }
 
   mat-icon {
     $size: 72px;

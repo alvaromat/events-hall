@@ -1,9 +1,16 @@
 {
   "remove": "Remove",
   "close": "Close",
+  "no_modules": "No modules to show. You can add one using the add button (+) in the toolbar, or using the button below.",
+  "add_module": "Add a new module",
+  "create_or_open": "Create a new presentation or open an existing one using the sidebar.",
+  "open_sidebar": "Open sidebar",
   "toolbar": {
     "title": "HP Events",
-    "close": "Close app"
+    "close": "Close app",
+    "fullscreen": "Toggle fullscreen mode",
+    "maximize": "Maximize/minimize window",
+    "switch_mode": "Switch presentation/edition mode"
   },
   "modules": {
     "twitter": "Twitter",

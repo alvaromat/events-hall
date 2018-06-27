@@ -43,3 +43,9 @@
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>
+
+<div *ngIf="!presentation || !(presentation.modules.length > 0)" class="filling-error">
+  <div><mat-icon>error_outline</mat-icon></div>
+  <div><p [innerHTML]="'no_modules' | translate"></p></div>
+  <div><button mat-raised-button>{{'add_module' | translate}}</button></div>
+</div>

@@ -1,7 +1,7 @@
-<button *ngIf="show && editing" mat-icon-button (click)="addModule()" [disabled]="cannotAddModules()">
+<button *ngIf="show && editing" mat-icon-button [matTooltip]="'add_module' | translate" (click)="addModule()" [disabled]="cannotAddModules()">
   <mat-icon>add</mat-icon>
 </button>
 
-<button *ngIf="show" mat-icon-button (click)="toggleEdit()" [disabled]="editing && !presentation.canDisplay()">
+<button *ngIf="show" mat-icon-button [matTooltip]="'toolbar.switch_mode' | translate" (click)="toggleEdit()" [disabled]="editing && !presentation.canDisplay()">
   <mat-icon>{{editing ? "slideshow" : "settings"}}</mat-icon>
 </button>

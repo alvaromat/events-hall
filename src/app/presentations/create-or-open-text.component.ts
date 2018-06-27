@@ -5,8 +5,8 @@ import { SidenavService } from '../providers/sidenav.service';
   selector: 'app-create-or-open-text',
   template: `
   <div>
-    <p>Create a new presentation or open an existing one using the sidebar.</p>
-    <button mat-raised-button (click)="openSidenav()">Open sidebar</button>
+    <p style="padding: 24px;">{{'create_or_open' | translate}}</p>
+    <button mat-raised-button (click)="openSidenav()">{{'open_sidebar' | translate}}</button>
   </div>
   `,
   styles: [

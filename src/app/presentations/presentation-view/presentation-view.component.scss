@@ -34,6 +34,9 @@ mat-card-content {
     border-radius: 10px;
     background-color: rgba(0, 0, 0, 0.3);
   }
+  .filling-error {
+    padding: 24px 0px;
+  }
 }
 
 .module {
@@ -67,8 +70,4 @@ mat-card-content {
   left: 0;
   height: 24px;
   background: linear-gradient(to bottom, transparent, white 50%);
-}
-
-.filling-error {
-  padding: 24px 0px;
 }
