@@ -11,6 +11,9 @@
   <span class="filling"></span>
 
   <app-presentation-buttons></app-presentation-buttons>
+  <button mat-icon-button (click)="toggleFullscreen()">
+    <mat-icon>{{fullscreen ? "fullscreen_exit" : "fullscreen"}}</mat-icon>
+  </button>
   <button mat-icon-button (click)="toggleMaximize()">
     <mat-icon>{{maximized ? "minimize" : "maximize"}}</mat-icon>
   </button>

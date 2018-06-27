@@ -27,6 +27,10 @@ export class AppComponent implements OnInit {
     return this.window.isMaximized();
   }
 
+  get fullscreen(): boolean {
+    return this.window.isFullScreen();
+  }
+
   constructor(
     private electronService: ElectronService,
     private translate: TranslateService,
@@ -55,11 +59,18 @@ export class AppComponent implements OnInit {
   }
 
   toggleMaximize() {
+    if (this.fullscreen) {
+      this.window.setFullScreen(false);
+    }
     if (this.maximized) {
       this.window.unmaximize();
     } else {
       this.window.maximize();
     }
+  }
+
+  toggleFullscreen() {
+    this.window.setFullScreen(!this.fullscreen);
   }
 
   suscribeToRouteChanges(): void {
