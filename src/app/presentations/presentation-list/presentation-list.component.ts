@@ -4,6 +4,7 @@ import { Presentation } from '../presentation';
 import { MatDialog } from '@angular/material';
 import { SidenavService } from '../../providers/sidenav.service';
 import { NewPresentationDialogComponent } from '../new-presentation-dialog/new-presentation-dialog.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-presentation-list',
@@ -16,7 +17,8 @@ export class PresentationListComponent implements OnInit {
   constructor(
     private presentationService: PresentationService,
     private dialog: MatDialog,
-    private sidenavService: SidenavService
+    private sidenavService: SidenavService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -30,11 +32,13 @@ export class PresentationListComponent implements OnInit {
       data: this.presentationService.getNewInstance()
     });
 
-    dialogRef.afterClosed().subscribe(resultPresentation => {
+    dialogRef.afterClosed().subscribe((resultPresentation: Presentation) => {
       if (resultPresentation) {
         this.presentationService
           .add(resultPresentation)
           .subscribe();
+          this.router.navigate(['presentation', resultPresentation.id, 'editing']);
+          this.closeSidenav();
       }
     });
   }
