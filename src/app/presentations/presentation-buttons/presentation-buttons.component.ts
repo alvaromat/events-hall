@@ -56,17 +56,16 @@ export class PresentationButtonsComponent implements OnInit {
       )
       .subscribe(routeSnapshot => {
         if (routeSnapshot.url[0] && routeSnapshot.url[0].path === 'presentation') {
-          this.show = true;
           this.editing = Boolean(routeSnapshot.paramMap.get('editing'));
           this.presentationId = routeSnapshot.paramMap.get('id');
           this.presentationService
             .get(+this.presentationId)
             .subscribe(presentation => {
               this.presentation = presentation;
-              if (this.presentation === undefined) {
-                this.show = false;
-              }
+              this.show = (this.presentation !== undefined);
             });
+        } else {
+          this.show = false;
         }
       });
   }
