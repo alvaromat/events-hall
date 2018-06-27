@@ -11,13 +11,13 @@ export class ConfigurationService {
 
   private loadConfiguration() {
     if (window.localStorage.getItem('config') === null) {
-      this.configuration = [];
+      this.configuration = new Object();
       window.localStorage.setItem('config', JSON.stringify(this.configuration));
     } else {
       try {
         this.configuration = JSON.parse(window.localStorage.getItem('config'));
       } catch (e) {
-        this.configuration = [];
+        this.configuration = new Object();
       }
     }
   }

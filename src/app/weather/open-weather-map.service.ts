@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { tap, catchError } from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
-import { ElectronService } from '../providers/electron.service';
+import { ConfigurationService } from '../providers/configuration.service';
 
 const OW_CONF = {
   apiKey: 'bfae1f8e940a726cddcf947929d6066d'
@@ -14,17 +14,15 @@ export class OpenWeatherMapService {
 
   globalParams;
 
-  constructor(private http: HttpClient, private electron: ElectronService) {
+  constructor(private http: HttpClient, private config: ConfigurationService) {
     this.globalParams = {
-      // TODO: use configuration service to get lang
-      lang: this.electron.remote.app.getLocale(),
       appid: OW_CONF.apiKey,
       units: 'metric'
     };
    }
 
   current(citiId, extraParameters = {}) {
-    const params = { id: citiId };
+    const params = { lang: this.config.language, id: citiId };
     Object.assign(params, this.globalParams, extraParameters);
 
     return this.http
@@ -36,7 +34,7 @@ export class OpenWeatherMapService {
   }
 
   forecast(citiId, extraParameters = {}) {
-    const params = { id: citiId };
+    const params = { lang: this.config.language, id: citiId };
     Object.assign(params, this.globalParams, extraParameters);
 
     return this.http

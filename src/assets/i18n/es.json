@@ -1,0 +1,88 @@
+{
+  "remove": "Eliminar",
+  "close": "Cerrar",
+  "discard": "Descartar",
+  "save": "Guardar",
+  "no_modules": "No hay módulos. Puedes añadir uno con el botón añadir en la barra de herramientas, o usando el botón debajo.",
+  "add_module": "Añadir un nuevo módulo",
+  "create_or_open": "Crea o abre una presentación usando la barra lateral.",
+  "open_sidebar": "Abrir barra lateral",
+  "new_presentation": "Nueva presentación",
+  "toolbar": {
+    "title": "HP Events",
+    "close": "Cerrar app",
+    "about": "Acerca de",
+    "fullscreen": "Pantalla completa",
+    "maximize": "Maximizar/minimizar ventana",
+    "switch_mode": "Camibar entre modo presentación y edición"
+  },
+  "about": {
+    "info_label": "Acerca de la aplicación",
+    "info_value": "Esta aplicación fue realizada por Álvaro Mateos Labrador como proyecto de fin de grado para la Unviersidad de Salamanca.<br>El proyecto fue propuesto por la empresa \"HP Solutions Creations & Development Services\", basada en León.",
+    "change_lang": "Cambiar idioma de la app"
+  },
+  "modules": {
+    "twitter": "Twitter",
+    "weather": "Previsión temporal",
+    "traffic": "Tráfico",
+    "player": "Reproductor de vídeos"
+  },
+  "module_form": {
+    "select_type": "Tipo de módulo",
+    "select_type_warn": "Seleccione el tipo de módulo deseado."
+  },
+  "twitter": {
+    "info_label": "Información",
+    "info_value": "Puedes hacer búsquedas de twits de la misma forma que en <a href=\"https://twitter.com/search-home/\">Twitter</a>. Por defecto buscarás twits que contengan todas las palabras en tu consulta, pero puedes servirte de <b>operadores</b> para refinar la consulta.",
+    "items_label": "Consulta",
+    "refresh_label": "Tiempo de refresco (segundos)",
+    "refresh_label_min": "El tiempo de refresco debe ser mayor a 5 segundos",
+    "show_operators": "Mostrar una lista de operadores de búsqueda con ejemplos",
+    "no_twits": "No hay twits para mostrar. Considere modificar la consulta.",
+    "search_operators_dialog": {
+      "table": "<table class=\"modal-table modal-table-bordered\"><thead><tr><th>Operador</th><th>Encuentra Tweets...</th></tr></thead><tbody><tr><td>búsqueda de twitter</td><td>conteniendo \"búsqueda\", \"de\" y \"twitter\". Este es el operador determinado.</td></tr><tr><td><b>\"</b>hora feliz<b>\"</b></td><td>que contengan la frase exacta \"hora feliz\".</td></tr><tr><td>amor <b>OR</b> odio</td><td>que contengan ya sea \"amor\" u \"odio\" (o ambos).</td></tr><tr><td>cerveza <b>-</b>raíz</td><td>que contengan \"cerveza\" pero no \"raíz\".</td></tr><tr><td><b>#</b>haiku</td><td>conteniendo el hashtag \"haiku\".</td></tr><tr><td><b>from:</b>alexiskold</td><td>enviados por \"alexiskold\".</td></tr><tr><td><b>to:</b>techcrunch</td><td>enviados a \"techcrunch\".</td></tr><tr><td><b>@</b>mashable</td><td>que hagan referencia a \"mashable\".</td></tr><tr><td>\"hora feliz\" <b>near:</b>\"san francisco\"</td><td>que contengan la frase exacta \"hora feliz\" y sean enviados cerca de \"san francisco\".</td></tr><tr><td><b>near:</b>la ciudad de NY <b>within:</b>15 millas</td><td>enviados a 15 millas de \"la ciudad de NY\".</td></tr><tr><td>superhéroe <b>since:</b>2010-12-27</td><td>que contengan \"superhéroe\" y sean enviados desde la fecha \"2010-12-27\" (año-mes-día).</td></tr><tr><td>ftw <b>until:</b>2010-12-27</td><td>que contengan \"ftw\" y sean enviados hasta la fecha \"2010-12-27\".</td></tr><tr><td>gracioso <b>filter:links</b></td><td>que contengan \"gracioso\" y enlacen a las URL.</td></tr><tr><td>noticias <b>source:\"Twitter Lite\"</b></td><td>que contengan \"noticias\" y sean ingresadas vía Twitter Lite</td></tr></tbody></table>"
+    }
+  },
+  "video_player": {
+    "info_label": "Información",
+    "info_value": "Reproduce videos locales o de Internet. Los formatos compatibles son <b>mp4</b>, <b>ogg</b> y <b>webm</b>.",
+    "no_video": "No hay videos para reproducir",
+    "add_title": "Añadir un video nuevo",
+    "video_from": "Video de",
+    "local": "El ordenador",
+    "web": "Internet",
+    "source_web": "URL del video",
+    "select_file": "Seleccionar",
+    "selected": "Archivo seleccionado",
+    "add": "Añadir video",
+    "video_list": "Lista de reproducción"
+  },
+  "weather": {
+    "info_label": "Información",
+    "info_value": "Busca tu ciudad y seleccionala en la lista. Puede aparecer varias veces. Esto significa que hay varias fuentes para obtener los datos, por lo que puedes cambiar de fuente si la previsión no parece del todo correcta.",
+    "no_data": "No se pudo obtener la previsión del tiempo.",
+    "city": "Ciudad",
+    "selected": "Ciudad seleccionada",
+    "no_selected": "No hay ninguna ciudad seleccionada."
+  },
+  "traffic": {
+    "info_label": "Información",
+    "info_value": "El tráfico de las calles se representa por su color. Hay atasco en las calles rojas, mientras que las verdes están libres.",
+    "location_input": "Ubicación",
+    "preview": "Vista previa",
+    "zoom": "Zoom",
+    "marker": "Mostrar marcador de posición",
+    "use_current": "Usar ubicación actual",
+    "no_data": "Configuración inválida"
+  },
+  "presentation_list": {
+    "no_presentations": "No hay presentaciones.",
+    "create": "Crea una",
+    "no_modules": "Sin módulos",
+    "one_module": "Un módulo",
+    "several_modules": "módulos"
+  },
+  "forms": {
+    "is_required": "es obligatorio"
+  }
+}
