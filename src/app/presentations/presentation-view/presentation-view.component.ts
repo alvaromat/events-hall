@@ -54,6 +54,10 @@ export class PresentationViewComponent implements OnInit {
     this.save();
   }
 
+  addModule() {
+    this.presentation.modules.push(new Module());
+  }
+
   save() {
     this.presentationService.update(this.presentation).subscribe();
   }

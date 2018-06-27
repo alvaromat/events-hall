@@ -10,7 +10,7 @@
     "close": "Close app",
     "fullscreen": "Toggle fullscreen mode",
     "maximize": "Maximize/minimize window",
-    "switch_mode": "Switch presentation/edition mode"
+    "switch_mode": "Switch between presentation and edition mode"
   },
   "modules": {
     "twitter": "Twitter",
