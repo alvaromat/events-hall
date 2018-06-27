@@ -16,17 +16,21 @@ try {
 }
 
 function createWindow() {
-  const electronScreen = screen;
+  const workAreaSize = screen.getPrimaryDisplay().workAreaSize;
 
   // Create the browser window.
   win = new BrowserWindow({
     frame: false,
     minWidth: 800,
     minHeight: 600,
+    width: workAreaSize.width,
+    height: workAreaSize.height,
     webPreferences: {
       webSecurity: false
     }
   });
+
+  win.maximize();
 
   if (serve) {
     require('electron-reload')(__dirname, {
