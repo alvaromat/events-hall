@@ -21,7 +21,7 @@
   </div>
 </div>
 
-<div *ngIf="!configuration || (!forecasts && !currentWeather)" class="filling-error">
+<div *ngIf="!configuration || (forecasts?.length === 0 && !currentWeather)" class="filling-error">
     <div><mat-icon>error_outline</mat-icon></div>
     <div><p>{{'weather.no_data' | translate}}</p></div>
   </div>

@@ -3,7 +3,7 @@
     <a matLine>{{ presentation.name }}</a>
     <p matLine>
       <span class="date">{{presentation.date | date: 'shortDate'}}</span>
-      <span class="modules">{{presentation.modules.length | i18nPlural: {'=0': 'No modules', '=1': 'One module', 'other': '# modules'} }}</span>
+      <span class="modules">{{ presentation.modules.length > 1 ? presentation.modules.length : '' }} {{presentation.modules.length | i18nPlural: {'=0': 'presentation_list.no_modules', '=1': 'presentation_list.one_module', 'other': 'presentation_list.several_modules'} | translate }}</span>
     </p>
     <button (click)="delete(presentation)" routerLink="/" class="delete" mat-icon-button>
       <mat-icon matListIcon>delete</mat-icon>

@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>New Presentation</h1>
+<h1 mat-dialog-title>{{'new_presentation'| translate }}</h1>
 <form #form="ngForm">
   <mat-dialog-content>
     <div>
@@ -17,7 +17,7 @@
 
   </mat-dialog-content>
   <mat-dialog-actions>
-    <button mat-button mat-dialog-close>Discard</button>
-    <button mat-button [mat-dialog-close]="presentation" [disabled]="form.invalid">Save</button>
+    <button mat-button mat-dialog-close>{{'discard' | translate}}</button>
+    <button mat-button [mat-dialog-close]="presentation" [disabled]="form.invalid">{{'save' | translate}}</button>
   </mat-dialog-actions>
 </form>
