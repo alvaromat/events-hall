@@ -11,6 +11,9 @@
   <span class="filling"></span>
 
   <app-presentation-buttons></app-presentation-buttons>
+  <button mat-icon-button matTooltip="{{'toolbar.about' | translate}}" (click)="showAbout()">
+    <mat-icon>help</mat-icon>
+  </button>
   <button mat-icon-button matTooltip="{{'toolbar.fullscreen' | translate}}" (click)="toggleFullscreen()">
     <mat-icon>{{fullscreen ? "fullscreen_exit" : "fullscreen"}}</mat-icon>
   </button>

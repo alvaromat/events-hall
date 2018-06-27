@@ -1,16 +1,25 @@
 {
   "remove": "Remove",
   "close": "Close",
+  "discard": "Discard",
+  "save": "Save",
   "no_modules": "No modules to show. You can add one using the add button (+) in the toolbar, or using the button below.",
   "add_module": "Add a new module",
   "create_or_open": "Create a new presentation or open an existing one using the sidebar.",
   "open_sidebar": "Open sidebar",
+  "new_presentation": "New presentation",
   "toolbar": {
     "title": "HP Events",
     "close": "Close app",
+    "about": "About",
     "fullscreen": "Toggle fullscreen mode",
     "maximize": "Maximize/minimize window",
     "switch_mode": "Switch between presentation and edition mode"
+  },
+  "about": {
+    "info_label": "About the application",
+    "info_value": "This application was made as a final degree project by Álvaro Mateos Labrador in the University of Salamanca (USAL).<br>The project was proposed by the company \"HP Solutions Creations & Development Services\".",
+    "change_lang": "Change app language"
   },
   "modules": {
     "twitter": "Twitter",
@@ -68,7 +77,10 @@
   },
   "presentation_list": {
     "no_presentations": "There are no presentations.",
-    "create": "Create one"
+    "create": "Create one",
+    "no_modules": "No modules",
+    "one_module": "One module",
+    "several_modules": "modules"
   },
   "forms": {
     "is_required": "is required"

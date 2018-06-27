@@ -10,6 +10,8 @@ import { filter, map, retry } from 'rxjs/operators';
 import { PresentationService } from './presentations/presentation.service';
 import { NewPresentationDialogComponent } from './presentations/new-presentation-dialog/new-presentation-dialog.component';
 import { Presentation } from './presentations/presentation';
+import { ConfigurationService } from './providers/configuration.service';
+import { AboutComponent } from './about/about.component';
 
 @Component({
   selector: 'app-root',
@@ -38,10 +40,10 @@ export class AppComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private presentationService: PresentationService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private configuration: ConfigurationService
   ) {
     translate.setDefaultLang('en');
-    console.log('environment', environment);
     this.window = electronService.remote.getCurrentWindow();
   }
 
@@ -50,12 +52,9 @@ export class AppComponent implements OnInit {
       this.window.webContents.openDevTools();
     }
     this.sidenavService.Sidenav = this.sidenav;
-
     this.translate.get('toolbar.title').pipe(retry(3)).subscribe((res: string) => this.title = res);
-
     this.suscribeToRouteChanges();
-    // TODO: use configuration service to get lang
-    this.translate.use(this.electronService.remote.app.getLocale());
+    this.translate.use(this.configuration.language);
   }
 
   toggleMaximize() {
@@ -94,6 +93,10 @@ export class AppComponent implements OnInit {
             this.translate.get('toolbar.title').subscribe((res: string) => this.title = res);
         }
       });
+  }
+
+  showAbout() {
+    this.dialog.open(AboutComponent);
   }
 
   editPresentation() {

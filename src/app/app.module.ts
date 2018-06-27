@@ -20,6 +20,8 @@ import { MAT_DATE_LOCALE, GestureConfig } from '@angular/material';
 import { SidenavService } from './providers/sidenav.service';
 import { SharedModule } from './shared/shared.module';
 import { PresentationsModule } from './presentations/presentations.module';
+import { AboutComponent } from './about/about.component';
+import { ConfigurationService } from './providers/configuration.service';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -27,7 +29,8 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, AboutComponent],
+  entryComponents: [AboutComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -44,9 +47,10 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'en_GB' },
+    { provide: HAMMER_GESTURE_CONFIG, useClass: GestureConfig  },
     ElectronService,
     SidenavService,
-    { provide: HAMMER_GESTURE_CONFIG, useClass: GestureConfig },
+    ConfigurationService
   ],
   bootstrap: [AppComponent]
 })
