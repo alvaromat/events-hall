@@ -1,6 +1,6 @@
 {
   "name": "events-hall",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "App to display information of different kinds in events or meetings",
   "homepage": "https://github.com/alvaromat/events-hall",
   "author": {
@@ -40,6 +40,7 @@
     "@angular/animations": "^5.2.10",
     "@angular/cdk": "^5.2.5",
     "@angular/material": "^5.2.5",
+    "electron-settings": "^3.2.0",
     "videogular2": "6.1.1"
   },
   "devDependencies": {
@@ -58,6 +59,7 @@
     "@ngx-translate/core": "9.1.1",
     "@ngx-translate/http-loader": "2.0.1",
     "@types/core-js": "0.9.36",
+    "@types/electron-settings": "^3.1.1",
     "@types/googlemaps": "^3.30.10",
     "@types/jasmine": "2.8.6",
     "@types/jasminewd2": "2.0.3",
@@ -68,9 +70,9 @@
     "cross-env": "5.1.4",
     "css-element-queries": "^1.0.2",
     "dotenv": "5.0.1",
-    "electron": "2.0.2",
-    "electron-builder": "20.15.1",
-    "electron-reload": "1.2.2",
+    "electron": "2.0.4",
+    "electron-builder": "20.19.2",
+    "electron-reload": "1.2.5",
     "fs-extra": "5.0.0",
     "hammerjs": "^2.0.8",
     "jasmine-core": "2.99.1",

@@ -19,7 +19,12 @@
   "about": {
     "info_label": "Acerca de la aplicación",
     "info_value": "Esta aplicación fue realizada por Álvaro Mateos Labrador como proyecto de fin de grado para la Unviersidad de Salamanca.<br>El proyecto fue propuesto por la empresa \"HP Solutions Creations & Development Services\", basada en León.",
-    "change_lang": "Cambiar idioma de la app"
+    "change_lang": "Cambiar idioma de la app",
+    "config_file_label": "Archivo de configuración",
+    "config_file_text": "La configuración se guarda en un archivo, cuya ruta aparece debajo.",
+    "open_userdata": "Abrir directorio del archivo de configuración",
+    "open_settings": "Abrir archivo de configuración",
+    "copied": "Se ha copiado el directorio del archivo de configuración"
   },
   "modules": {
     "twitter": "Twitter",

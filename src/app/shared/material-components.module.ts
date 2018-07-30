@@ -5,11 +5,9 @@ import {
   MatButtonModule,
   MatTooltipModule,
   MatListModule,
-  MatListItem,
   MatInputModule,
   MatDatepickerModule,
   MatDialogModule,
-  DateAdapter,
   MatSidenavModule,
   MatGridListModule,
   MatCardModule,
@@ -17,11 +15,11 @@ import {
   MatRadioModule,
   MatAutocompleteModule,
   MatSliderModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatSnackBarModule
 } from '@angular/material';
 import {
-  MatMomentDateModule,
-  MomentDateAdapter
+  MatMomentDateModule
 } from '@angular/material-moment-adapter';
 
 @NgModule({
@@ -42,7 +40,8 @@ import {
     MatRadioModule,
     MatAutocompleteModule,
     MatSliderModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatSnackBarModule
   ],
   exports: [
     MatToolbarModule,
@@ -61,7 +60,8 @@ import {
     MatRadioModule,
     MatAutocompleteModule,
     MatSliderModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatSnackBarModule
   ],
   declarations: []
 })

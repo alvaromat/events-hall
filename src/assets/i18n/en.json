@@ -19,7 +19,12 @@
   "about": {
     "info_label": "About the application",
     "info_value": "This application was made as a final degree project by Álvaro Mateos Labrador in the University of Salamanca (USAL).<br>The project was proposed by the company \"HP Solutions Creations & Development Services\".",
-    "change_lang": "Change app language"
+    "change_lang": "Change app language",
+    "config_file_label": "Settings file",
+    "config_file_text": "Settings are stored in a JSON file located in the path below.",
+    "open_userdata": "Open settings file directory",
+    "open_settings": "Open settings file",
+    "copied": "Settings file path copied"
   },
   "modules": {
     "twitter": "Twitter",

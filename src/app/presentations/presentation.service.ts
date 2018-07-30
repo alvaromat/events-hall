@@ -3,16 +3,20 @@ import { Presentation } from './presentation';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import 'rxjs/add/observable/throw';
-
 const PRESENTATIONS = 'presentations';
+
+import * as settings from 'electron-settings';
 
 @Injectable()
 export class PresentationService {
-  private presentations: Presentation[] = undefined;
+  private presentations: Array<Presentation> = undefined;
+  settings: typeof settings;
 
-  constructor() {}
+  constructor() {
+    this.settings = window.require('electron-settings');
+  }
 
-  getPresentations(): Observable<Presentation[]> {
+  getPresentations(): Observable<Array<Presentation>> {
     if (this.presentations === undefined) {
       this.presentations = this.loadPresentations();
     }
@@ -23,17 +27,17 @@ export class PresentationService {
   /**
    * Loads the presentations from local storage.
    */
-  private loadPresentations(): Presentation[] {
-    let presentations: Presentation[];
-    if (window.localStorage.getItem(PRESENTATIONS) === null) {
-      presentations = [];
-      window.localStorage.setItem(PRESENTATIONS, JSON.stringify(presentations));
+  private loadPresentations(): Array<Presentation> {
+    let presentations: any;
+    if (!this.settings.has(PRESENTATIONS)) {
+      presentations = new Array<Presentation>();
+      this.settings.set(PRESENTATIONS, presentations);
     } else {
       try {
-        const JSONpresentations = JSON.parse(window.localStorage.getItem(PRESENTATIONS));
-        presentations = JSONpresentations.map((p) => Presentation.fromJsonObject(p));
+        presentations = this.settings.get(PRESENTATIONS);
+        presentations = presentations.map((p) => Presentation.fromJsonObject(p));
       } catch (e) {
-        presentations = [];
+        presentations = new Array<Presentation>();
       }
     }
 
@@ -78,7 +82,7 @@ export class PresentationService {
    * Stores the presentations in local storage.
    */
   private save() {
-    window.localStorage.setItem(PRESENTATIONS, JSON.stringify(this.presentations));
+    this.settings.set(PRESENTATIONS, <any>this.presentations);
   }
 
   getNewInstance(): Presentation {

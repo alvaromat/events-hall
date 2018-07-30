@@ -12,6 +12,14 @@
   </mat-form-field>
 </p>
 
+<div class="app-info">
+  <p>{{'about.config_file_label' | translate}}</p>
+  <p>{{'about.config_file_text' | translate}}</p>
+  <button class="conf-path" mat-button (click)="copyPath()">{{configFilePath}}</button>
+</div>
+
 <mat-dialog-actions>
   <button mat-button mat-dialog-close>{{'close' | translate}}</button>
+  <button mat-button (click)="openUserDataPath()">{{'about.open_userdata' | translate}}</button>
+  <button mat-button (click)="openConfigFile()">{{'about.open_settings' | translate}}</button>
 </mat-dialog-actions>

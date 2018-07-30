@@ -1,29 +1,32 @@
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import * as settings from 'electron-settings';
 
 @Injectable()
 export class ConfigurationService {
   configuration;
+  settings: typeof settings;
 
   constructor(private translate: TranslateService) {
+    this.settings = window.require('electron-settings');
     this.loadConfiguration();
   }
 
   private loadConfiguration() {
-    if (window.localStorage.getItem('config') === null) {
-      this.configuration = new Object();
-      window.localStorage.setItem('config', JSON.stringify(this.configuration));
-    } else {
+    if (this.settings.has('config')) {
       try {
-        this.configuration = JSON.parse(window.localStorage.getItem('config'));
+        this.configuration = this.settings.get('config');
       } catch (e) {
         this.configuration = new Object();
       }
+    } else {
+      this.configuration = new Object();
+      this.settings.set('config', this.configuration);
     }
   }
 
   private save() {
-    window.localStorage.setItem('config', JSON.stringify(this.configuration));
+    this.settings.set('config', this.configuration);
   }
 
   get language() {
