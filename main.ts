@@ -1,13 +1,19 @@
 import { app, BrowserWindow, screen } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
+import { DefaultApiKeys } from './src/app/default-api-keys';
 
 let win, serve;
 const args = process.argv.slice(1);
 serve = args.some(val => val === '--serve');
 
+const settings = require('electron-settings');
+
 // Set up Google API key for geolocation
-process.env.GOOGLE_API_KEY = 'AIzaSyDhbLJjAtXRgED7JCjwD4nO-RTER-f-JN0';
+process.env.GOOGLE_API_KEY =
+  settings.get('keys.google.apiKey') === ''
+    ? DefaultApiKeys.google.apiKey
+    : settings.get('keys.google.apiKey');
 
 try {
   require('dotenv').config();

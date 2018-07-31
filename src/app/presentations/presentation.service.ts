@@ -31,7 +31,7 @@ export class PresentationService {
     let presentations: any;
     if (!this.settings.has(PRESENTATIONS)) {
       presentations = new Array<Presentation>();
-      this.settings.set(PRESENTATIONS, presentations);
+      this.settings.set(PRESENTATIONS, presentations, {prettify: true});
     } else {
       try {
         presentations = this.settings.get(PRESENTATIONS);
@@ -82,7 +82,7 @@ export class PresentationService {
    * Stores the presentations in local storage.
    */
   private save() {
-    this.settings.set(PRESENTATIONS, <any>this.presentations);
+    this.settings.set(PRESENTATIONS, <any>this.presentations, {prettify: true});
   }
 
   getNewInstance(): Presentation {

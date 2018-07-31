@@ -3,24 +3,19 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { tap, catchError, map, switchMap } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
-
-const TWITTER_CONF = {
-  consumerKey: 'WtO4ZmsssceJ0dsj2Cla6mTca',
-  consumerSecret: '35XnpsalcaKb8L9yHR2uRRCLp78W7Cf0K2GjLO4Xi98wHHSFOE',
-  callBackUrl: ''
-};
+import { ConfigurationService } from '../providers/configuration.service';
 
 @Injectable()
 export class TwitterService {
   private authHeader: HttpHeaders;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private config: ConfigurationService) {}
 
   private getAuthHeader(): Observable<HttpHeaders> {
     if (this.authHeader === undefined) {
       const bearerTokenCredentials = this.getBearerTokenCredentials(
-        TWITTER_CONF.consumerKey,
-        TWITTER_CONF.consumerSecret
+        this.config.keys.twitter.consumerKey,
+        this.config.keys.twitter.consumerSecret
       );
       return this.getBearerToken(bearerTokenCredentials).pipe(
         map(response => new HttpHeaders({Authorization: `Bearer ${response['access_token']}`})),

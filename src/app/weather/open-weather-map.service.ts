@@ -5,10 +5,6 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { ConfigurationService } from '../providers/configuration.service';
 
-const OW_CONF = {
-  apiKey: 'bfae1f8e940a726cddcf947929d6066d'
-};
-
 @Injectable()
 export class OpenWeatherMapService {
 
@@ -16,7 +12,7 @@ export class OpenWeatherMapService {
 
   constructor(private http: HttpClient, private config: ConfigurationService) {
     this.globalParams = {
-      appid: OW_CONF.apiKey,
+      appid: config.keys.openWeatherMaps.apiKey,
       units: 'metric'
     };
    }
